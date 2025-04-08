@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Data</title>
+    <title>Whether Weather</title>    
+
     <script src="/data/weather_data.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -16,9 +18,22 @@
             weatherCode.innerHTML = currentCityData.daily.weather_code[0];
         });
     </script>
-</head>
-<body>
+
+  </head>
+  <body>
+
     <p>The time is <span id="time"></span></p>
     <p>The weather code is <span id="weatherCode"></span></p>
-</body>
+    <p>Current city is <span id="currentCity"></span></p>
+   
+
+    <div class="mainContent">
+      
+<p>Index </p>
+<p>The time is <span id="time"></span></p>
+<p>The weather code is <span id="weatherCode"></span></p>
+
+    </div>
+
+  </body>
 </html>
