@@ -7,9 +7,9 @@
 
     <!-- Bulma Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-
     <title>Whether Weather</title>    
 
+    <!-- Weather Data -->
     <script src="/data/weather_data.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -21,9 +21,10 @@
             time.innerHTML = currentCityData.daily.time[0];
             weatherCode.innerHTML = currentCityData.daily.weather_code[0];
         });
-    </script>
+    </script> 
 
   </head>
+
   <body class="container">
  
     {% include "header.njk" %}
