@@ -1,9 +1,13 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" data-theme="dark"> <!-- Dark Theme selected -->
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bulma Framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
     <title>Whether Weather</title>    
 
     <script src="/data/weather_data.js"></script>
@@ -20,16 +24,13 @@
     </script>
 
   </head>
-  <body>
-
-    <p>The time is <span id="time"></span></p>
-    <p>The weather code is <span id="weatherCode"></span></p>
-    <p>Current city is <span id="currentCity"></span></p>
-   
-
-    <div class="mainContent">
+  <body class="container">
+ 
+    {% include "header.njk" %}
+    <div>
       {{ content | safe }}
     </div>
+    {% include "footer.njk" %}
 
   </body>
 </html>

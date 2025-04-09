@@ -1,0 +1,19 @@
+<header>
+    <!-- Logo -->
+    <div class= "header-items">
+    <a href="/index"> <img id="logo" src="/images/logo.png" alt="Company Logo"></a>
+    </div>
+    <!-- Navigation bar -->
+    <div class= "header-items">
+        <nav id="navigation">
+            {% set navPages = collections.all | eleventyNavigation %}
+            <ul id="menu">
+                {%- for entry in navPages %}
+                <li{% if entry.url == page.url %} class="active" {% endif %}>
+                    <a href="{{ entry.url | url }}"> {{  entry.title  }}</a> 
+                </li>
+                {%- endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>
