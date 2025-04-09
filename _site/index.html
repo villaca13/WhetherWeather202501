@@ -11,29 +11,24 @@
 
     <!-- Weather Data -->
     <script src="/data/weather_data.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const currentCity = "amsterdam";
-            const currentCityData = weatherData[currentCity + "_daily"]
-            const time = document.getElementById("time");
-            const weatherCode = document.getElementById("weatherCode");
+    <!-- javascript file -->
+    <script src="/js/project.js"></script>
 
-            time.innerHTML = currentCityData.daily.time[0];
-            weatherCode.innerHTML = currentCityData.daily.weather_code[0];
-        });
-    </script> 
-
+    <script src="/js/navbar.js"></script>
+  
   </head>
 
   <body class="container">
  
     <header>
+
+
     <!-- Navigation bar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         
         <!-- Logo -->
         <div class="navbar-brand">
-            <a href="/index"> <img id="logo" src="/images/logo.png" alt="Company Logo"></a>
+            <a href="/index"><img id="logo" src="/images/logo.png" alt="Company Logo"></a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
@@ -42,27 +37,30 @@
             <span aria-hidden="true"></span>
             </a>
         </div>
-        <div class="navbar-menu">
+
+        <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-            <a class="navbar-item">
+
+            <a class="navbar-item" href="/index">
                 Home
             </a>
-            <a class="navbar-item">
+
+            <a class="navbar-item" href="/dashboard">
                 Dashboard
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="/preferences">
                 Settings
             </a>
 
             </div>
+            
         </div>
     </nav>
 </header>
     <div>
       
-
-    
+<h1>City</h1>
 
     <p>The time is <span id="time"></span></p>
     <p>The weather code is <span id="weatherCode"></span></p>

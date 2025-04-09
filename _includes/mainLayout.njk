@@ -11,18 +11,11 @@
 
     <!-- Weather Data -->
     <script src="/data/weather_data.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const currentCity = "amsterdam";
-            const currentCityData = weatherData[currentCity + "_daily"]
-            const time = document.getElementById("time");
-            const weatherCode = document.getElementById("weatherCode");
+    <!-- javascript file -->
+    <script src="/js/project.js"></script>
 
-            time.innerHTML = currentCityData.daily.time[0];
-            weatherCode.innerHTML = currentCityData.daily.weather_code[0];
-        });
-    </script> 
-
+    <script src="/js/navbar.js"></script>
+  
   </head>
 
   <body class="container">
