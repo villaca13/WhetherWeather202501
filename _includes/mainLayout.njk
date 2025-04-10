@@ -19,12 +19,10 @@
   </head>
 
   <body class="container">
- 
     {% include "header.njk" %}
-    <div>
-      {{ content | safe }}
-    </div>
-    {% include "footer.njk" %}
+      
+    {{ content | safe }}
 
+    {% include "footer.njk" %}
   </body>
 </html>
