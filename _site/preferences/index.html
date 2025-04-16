@@ -9,13 +9,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <title>Whether Weather</title>    
 
+    <!-- Weather Project -->
+    <script src="/js/weather_project.js"></script>
+    
+    <!-- Components -->
+    <script src="/js/components/weather-item.js"></script>
     <!-- Weather Data -->
-    <script src="/data/weather_data.js"></script>
-    <!-- javascript file -->
-    <script src="/js/project.js"></script>
+    <script src="/js/weather_data.js"></script>
+    <!-- javascript file 
+    <script src="/js/project.js"></script> -->
 
     <script src="/js/navbar.js"></script>
-  
+    
+    <!-- Populate Dashboard page -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const main = document.querySelector("#dashboard")
+      weatherProject.dataStore.list().forEach((cityWeather) => {
+        main.innerHTML =
+          main.innerHTML + weatherProject.components.createWeatherItem(cityWeather)
+
+      })
+    })
+    </script>
+     
   </head>
 
   <body class="container">
@@ -50,23 +67,96 @@
 </header>
       
     
-<h1 class="title">Settings</h1>
 
-<div class="columns is fullwidth">
-    <div class="column">
-        <p class="box has-background-info">First column</p>
+<main id="settings" class="columns is-multiline box has-background-info is-centered">
+    <div class="column is-12 has-text-centered has-text-white">
+        <h1 class="title">User Settings</h1>
     </div>
 
-</div>
-<div class="columns">
-    <div class="column">
-        <p class="box has-background-info">First column</p>
-    </div>
-    <div class="column">
-        <p class="box has-background-info">Second column</p>
+
+    <div class="column is-2 checkboxes is-multiline box has-background-black">
+        <h2 class="subtitle has-text-centered is-4">Cities</h2>
+        <label class="checkbox column ">
+            <input type="checkbox" />
+            Monday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Tuesday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Wednesday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Thursday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Friday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" checked />
+            Saturday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" checked />
+            Sunday
+        </label>
     </div>
 
-</div>
+    <div class="column is-2 is-offset-2 checkboxes is-multiline box has-background-black">
+        <h2 class="subtitle has-text-centered is-4">Preferences</h2>
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Monday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Tuesday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Wednesday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Thursday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" />
+            Friday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" checked />
+            Saturday
+        </label>
+
+        <label class="checkbox column">
+            <input type="checkbox" checked />
+            Sunday
+        </label>
+    </div>
+
+
+
+</main>
+
+
+
+
 
     <footer>
   

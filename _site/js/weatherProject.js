@@ -1,0 +1,4 @@
+window.weatherProject = {
+    components: {},
+    dataStore: {}
+  }

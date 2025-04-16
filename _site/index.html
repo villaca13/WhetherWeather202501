@@ -9,13 +9,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <title>Whether Weather</title>    
 
+    <!-- Weather Project -->
+    <script src="/js/weather_project.js"></script>
+    
+    <!-- Components -->
+    <script src="/js/components/weather-item.js"></script>
     <!-- Weather Data -->
-    <script src="/data/weather_data.js"></script>
-    <!-- javascript file -->
-    <script src="/js/project.js"></script>
+    <script src="/js/weather_data.js"></script>
+    <!-- javascript file 
+    <script src="/js/project.js"></script> -->
 
     <script src="/js/navbar.js"></script>
-  
+    
+    <!-- Populate Dashboard page -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const main = document.querySelector("#dashboard")
+      weatherProject.dataStore.list().forEach((cityWeather) => {
+        main.innerHTML =
+          main.innerHTML + weatherProject.components.createWeatherItem(cityWeather)
+
+      })
+    })
+    </script>
+     
   </head>
 
   <body class="container">
@@ -53,6 +70,11 @@
 
 
 <h1 class="title">City</h1>
+    <main id= "index" class="columns is-multiline box has-background-info is-centered">
+      <div class="column is-12 has-text-centered has-text-white">
+        <p class="is-size-1">Dashboard</p>
+      </div>
+    </main>
 
     <p class="subtitle" >The time is <span id="time"></span></p>
     <p>The weather code is <span id="weatherCode"></span></p>
