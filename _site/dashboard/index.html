@@ -25,10 +25,11 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
       const main = document.querySelector("#dashboard")
+      const preferences = document.querySelector("#preferences")
       weatherProject.dataStore.list().forEach((cityWeather) => {
-        main.innerHTML =
-          main.innerHTML + weatherProject.components.createWeatherItem(cityWeather)
-
+        main.innerHTML = main.innerHTML + weatherProject.components.createWeatherItem(cityWeather)
+        preferences.innerHTML =
+          preferences.innerHTML + weatherProject.components.createCitiesCheckbox(cityWeather)
       })
     })
     </script>

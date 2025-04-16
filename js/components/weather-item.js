@@ -25,3 +25,11 @@ window.weatherProject.components.createWeatherItem = (cityWeather) => {
       </section>
     </div>`
 }
+
+window.weatherProject.components.createCitiesCheckbox = (cityWeather) => {
+        return `
+        <label class="checkbox column">
+            <input type="checkbox" />
+            ${cityWeather.city}
+        </label>`
+}
