@@ -16,24 +16,26 @@
     <script src="/js/components/weather-item.js"></script>
     <!-- Weather Data -->
     <script src="/js/weather_data.js"></script>
-    <!-- javascript file 
-    <script src="/js/project.js"></script> -->
+    
+    <script src="/js/generalFunctions.js"></script>
 
     <script src="/js/navbar.js"></script>
-    
-    <!-- Populate Dashboard page -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const main = document.querySelector("#dashboard")
-      const preferences = document.querySelector("#preferences")
-      weatherProject.dataStore.list().forEach((cityWeather) => {
-        main.innerHTML = main.innerHTML + weatherProject.components.createWeatherItem(cityWeather)
-        preferences.innerHTML =
-          preferences.innerHTML + weatherProject.components.createCitiesCheckbox(cityWeather)
-      })
-    })
-    </script>
      
+    <script>
+    const weatherData = weatherProject.dataStore.list()
+    const dataKeyNames = Object.keys(weatherData)
+    const dailyWeather = "_daily"
+    const hourlyWeather = "_hourly"
+    const cities = getListOfCities(dataKeyNames)
+    localStorage.setItem("cities", cities)
+    
+    console.log(cities)
+
+  
+    
+    </script>
+
+
   </head>
 
   <body class="container">

@@ -1,10 +1,10 @@
-window.weatherProject.components.createWeatherItem = (cityWeather) => {
+window.weatherProject.components.createWeatherItem = (city) => {
     return `
     <div class="column is-4">
       <section class="card has-text-centered">
         <header class="card-header">
           <p class="card-header-title is-size-4 is-centered">
-            ${cityWeather.city} + ${cityWeather.daily.daily.time[0]}
+            ${city} 
           </p>
         </header>
         <div class="card-image">
@@ -14,7 +14,7 @@ window.weatherProject.components.createWeatherItem = (cityWeather) => {
         </div>
         <article class="card-content">
           <p class="content is-size-4">
-            ${cityWeather.sunrise}
+            ${city}
           </p>
         </article>
         <footer class="card-footer">
@@ -26,10 +26,10 @@ window.weatherProject.components.createWeatherItem = (cityWeather) => {
     </div>`
 }
 
-window.weatherProject.components.createCitiesCheckbox = (cityWeather) => {
+window.weatherProject.components.createCitiesCheckbox = (city) => {
         return `
         <label class="checkbox column">
             <input type="checkbox" />
-            ${cityWeather.city}
+            ${city}
         </label>`
 }
