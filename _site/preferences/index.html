@@ -27,12 +27,17 @@
     const dailyWeather = "_daily"
     const hourlyWeather = "_hourly"
     const cities = getListOfCities(dataKeyNames)
-    localStorage.setItem("cities", cities)
-    
-    console.log(cities)
+    let currentCity = cities[0]
 
-  
+    //* This is used to get the current city from local storage.
+    if(localStorage.getItem("currentCity") === null) {
+        localStorage.setItem("currentCity", currentCity)
+    } else {
+        currentCity = localStorage.getItem("currentCity")
+    }
+
     
+    console.log(cities)    
     </script>
 
 
@@ -71,14 +76,37 @@
       
     <script>
     document.addEventListener("DOMContentLoaded", () => {    
-    const cityCheckboxes = document.querySelector("#citiesCheckboxes")
-        // Populate Checkboxes with cities at preferences page
+
+        createCheckboxes (cities)
         cities.forEach((city) => {
-        cityCheckboxes.innerHTML =
-            cityCheckboxes.innerHTML + weatherProject.components.createCitiesCheckbox(city)
-         })
+            if(localStorage.getItem(city) === null) {
+                localStorage.setItem(city, true)
+                updateCheckbox (city, true) 
+
+            } else {
+                const isChecked = localStorage.getItem(city) === "true" ? true : false
+                updateCheckbox (city, isChecked)                 
+            }
+        })
     })
-</script>
+
+    // * This is used to save the state of the checkboxes in local storage.
+    // * When the page is loaded, it will check the local storage and set the checkbox state accordingly.
+    document.addEventListener("DOMContentLoaded", () => { 
+        var citiesCheckBox = document.querySelectorAll("input[class='cityCheckbox']")
+        //console.log(citiesCheckBox)
+
+        citiesCheckBox.forEach((checkbox) => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {                    
+                    localStorage.setItem(this.id, true)
+                } else {
+                    localStorage.setItem(this.id, false)
+                }
+            })
+        })
+    })
+    </script>
 
 <main id="preferences" class="columns is-multiline box has-background-info is-centered">
     <div class="column is-12 has-text-centered has-text-white">

@@ -7,11 +7,12 @@ function getListOfCities (citiesKeyNames) {
     // Loop through the keys and create a new array with the city names
     // Replace "_daily" and "_hourly" with an empty string and replace "_" with " "
     for ( let i = 0; i < citiesKeyNames.length; i++) {
-      const cityName = citiesKeyNames[i].replace("_daily", "").replace("_hourly", "").replace("_", " ")
+      //const cityName = citiesKeyNames[i].replace("_daily", "").replace("_hourly", "").replace("_", " ")
+      const cityName = citiesKeyNames[i].replace("_daily", "").replace("_hourly", "")
 
       // Check if the city name contains whitespace and capitalize the first letter of each word
-      if (hasWhiteSpace(cityName)) {
-        citiesNames[i] = cityName.charAt(0).toUpperCase() + cityName.slice(1,cityName.indexOf(' ')+1) + cityName.charAt(cityName.indexOf(' ')+1).toUpperCase() + cityName.slice(cityName.indexOf(' ') + 2)
+      if (hasUnderscore(cityName)) {
+        citiesNames[i] = cityName.charAt(0).toUpperCase() + cityName.slice(1,cityName.indexOf('_')+1) + cityName.charAt(cityName.indexOf('_')+1).toUpperCase() + cityName.slice(cityName.indexOf('_') + 2)
       }else {
         citiesNames[i] = cityName.charAt(0).toUpperCase() + cityName.slice(1)
       }
@@ -28,6 +29,27 @@ function getListOfCities (citiesKeyNames) {
 }
 
 // Function to check if a string contains whitespace    
-function hasWhiteSpace(s) {
-    return s.indexOf(' ') >= 0;
-  }
+function hasUnderscore(s) {
+    return s.indexOf('_') >= 0;
+}
+
+// Function to create a list of checkboxes for each city
+function createCheckboxes (cities) {
+  const cityCheckboxes = document.querySelector("#citiesCheckboxes")
+  // Populate Checkboxes with cities at preferences page
+  cities.forEach((city) => {
+      cityCheckboxes.innerHTML =
+          cityCheckboxes.innerHTML + weatherProject.components.createCitiesCheckbox(city)
+  })
+}
+
+// Funtion to read the value of a checkbox
+function readCheckbox (idCheckbox) {
+  return localStorage.getItem(idCheckbox) === "true" ? true : false
+}
+
+// Function to read the value of a checkbox and update the value of the checkbox
+function updateCheckbox (idCheckbox, value) {
+  document.querySelector("#"+idCheckbox).checked = value
+}
+

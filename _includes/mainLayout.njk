@@ -27,12 +27,17 @@
     const dailyWeather = "_daily"
     const hourlyWeather = "_hourly"
     const cities = getListOfCities(dataKeyNames)
-    localStorage.setItem("cities", cities)
-    
-    console.log(cities)
+    let currentCity = cities[0]
 
-  
+    //* This is used to get the current city from local storage.
+    if(localStorage.getItem("currentCity") === null) {
+        localStorage.setItem("currentCity", currentCity)
+    } else {
+        currentCity = localStorage.getItem("currentCity")
+    }
+
     
+    console.log(cities)    
     </script>
 
 
