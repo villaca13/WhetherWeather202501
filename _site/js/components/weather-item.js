@@ -3,7 +3,7 @@ window.weatherProject.components.createWeatherItem = (city) => {
     <div class="column is-4">
       <section class="card has-text-centered" >
         <header class="card-header">
-         <a href="/index/?name=${city}" class="card-header-title is-size-4 is-centered">
+         <a href="/cityFocus/?name=${city}" class="card-header-title is-size-4 is-centered">
             ${city.replace(/_/g, " ")} 
           
           </a>
