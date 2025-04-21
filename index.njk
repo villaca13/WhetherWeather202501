@@ -4,12 +4,14 @@ layout: mainLayout.njk
 <script>
     document.addEventListener("DOMContentLoaded", () => {
     const dashboard = document.querySelector("#dashboard")
+    const cityDaily = weatherData[localStorage.getItem("currentCity").toLowerCase() + "_daily"]
+
         // Populate Checkboxes with cities at preferences page
         cities.forEach((city) => {
           if(readCheckbox(city))
           {
             dashboard.innerHTML =
-              dashboard.innerHTML + weatherProject.components.createWeatherItem(city)
+              dashboard.innerHTML + weatherProject.components.createWeatherItem(city, weatherData[city.toLowerCase() + "_daily"] )
           }
         })
     })    
@@ -18,6 +20,6 @@ layout: mainLayout.njk
 <main id="dashboard" class="columns is-multiline box has-background-info is-centered">
   <div class="column is-12 has-text-centered has-text-white">
     <p class="title">Dashboard</p>
-    <p class="subtitle ">Dashboard</p>
+    <p class="subtitle "></p>
   </div>
 </main>

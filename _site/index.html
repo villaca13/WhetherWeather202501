@@ -24,18 +24,10 @@
     <script>
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
-    const dailyWeather = "_daily"
-    const hourlyWeather = "_hourly"
+
     const cities = getListOfCities(dataKeyNames)
-    let currentCity = cities[0]
 
-    //* This is used to get the current city from local storage.
-    if(localStorage.getItem("currentCity") === null) {
-        localStorage.setItem("currentCity", currentCity)
-    } else {
-        currentCity = localStorage.getItem("currentCity")
-    }
-
+ 
     
     console.log(cities)    
     </script>
@@ -77,12 +69,14 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {
     const dashboard = document.querySelector("#dashboard")
+    const cityDaily = weatherData[localStorage.getItem("currentCity").toLowerCase() + "_daily"]
+
         // Populate Checkboxes with cities at preferences page
         cities.forEach((city) => {
           if(readCheckbox(city))
           {
             dashboard.innerHTML =
-              dashboard.innerHTML + weatherProject.components.createWeatherItem(city)
+              dashboard.innerHTML + weatherProject.components.createWeatherItem(city, weatherData[city.toLowerCase() + "_daily"] )
           }
         })
     })    
@@ -91,7 +85,7 @@
 <main id="dashboard" class="columns is-multiline box has-background-info is-centered">
   <div class="column is-12 has-text-centered has-text-white">
     <p class="title">Dashboard</p>
-    <p class="subtitle ">Dashboard</p>
+    <p class="subtitle "></p>
   </div>
 </main>
 

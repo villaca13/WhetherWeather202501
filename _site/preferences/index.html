@@ -24,18 +24,10 @@
     <script>
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
-    const dailyWeather = "_daily"
-    const hourlyWeather = "_hourly"
+
     const cities = getListOfCities(dataKeyNames)
-    let currentCity = cities[0]
 
-    //* This is used to get the current city from local storage.
-    if(localStorage.getItem("currentCity") === null) {
-        localStorage.setItem("currentCity", currentCity)
-    } else {
-        currentCity = localStorage.getItem("currentCity")
-    }
-
+ 
     
     console.log(cities)    
     </script>

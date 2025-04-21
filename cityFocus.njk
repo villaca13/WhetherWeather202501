@@ -3,14 +3,32 @@ layout: mainLayout.njk
 ---
 
 <script>
-	document.addEventListener('DOMContentLoaded', () =>{ 
+
+
+		document.addEventListener('DOMContentLoaded', () =>{ 
+	    
 		const urlParams = new URLSearchParams(window.location.search); 
-		const cityName = urlParams.get('city'); 
+	
+		//* This is used to get the current city from local storage.
+		if(urlParams.get('city') === null) {
+			if(localStorage.getItem("currentCity") === null) {
+				localStorage.setItem("currentCity", cities[0])
+			}
+		} else {
+			localStorage.setItem("currentCity", urlParams.get('city'))
+		}
+
+		const cityDaily = weatherData[localStorage.getItem("currentCity").toLowerCase() + "_daily"]
+	    const cityHourly = weatherData[localStorage.getItem("currentCity").toLowerCase() + "_hourly"]
+
+
+		console.log(cityDaily)
+    
+	
+		document.getElementById('page-heading').textContent= localStorage.getItem("currentCity"); 
 		
-		//const playlist= weatherProject.dataStore.list().find(item=>item.name===playlistName); 
-		//document.getElementById('page-heading').textContent=playlist.name; constmain=document.querySelector('main'); 
-		
-		//main.innerHTML=main.innerHTML+dotify.components.createPlaylistItem(playlist); 
+		//const main=document.querySelector('main'); 
+		//main .innerHTML = main.innerHTML+dotify.components.createPlaylistItem(playlist); 
 		//main.innerHTML=main.innerHTML+dotify.components.createPlaylistList(playlist.songs); 
 		});
 </script>
@@ -19,7 +37,7 @@ layout: mainLayout.njk
 
 <main id= "index" class="box has-background-info is-centered">
 	<div class=" is-12 has-text-centered has-text-white">
-		<p class="title is-size-1"> City </p>
+		<p id="page-heading"  class="title is-size-1">  </p>
 		<p class="subtitle is-size-2"> Today </p>
 	</div>
 
