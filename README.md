@@ -100,7 +100,7 @@ BouncingBallWebsite/
 -------- New
 "eleventy not found" error https://answers.netlify.com/t/eleventy-non-zero-exit-code-127-error/66900  answer  https://andrewborstein.com/blog/moving-my-blog-to-eleventy-part-2/
 
-
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach 
 ---
 
 ## Limitations and Future Work
