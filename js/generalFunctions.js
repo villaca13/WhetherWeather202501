@@ -53,3 +53,4 @@ function updateCheckbox (idCheckbox, value) {
   document.querySelector("#"+idCheckbox).checked = value
 }
 
+

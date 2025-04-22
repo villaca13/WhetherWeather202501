@@ -2,6 +2,7 @@
 layout: mainLayout.njk
 ---
 
+
 <script>
 
 
@@ -25,71 +26,145 @@ layout: mainLayout.njk
 		console.log(cityDaily)
     
 	
-		document.getElementById('page-heading').textContent= localStorage.getItem("currentCity"); 
+		document.getElementById('page-heading').textContent= localStorage.getItem("currentCity").replace(/_/g, " "); 
 		
-		//const main=document.querySelector('main'); 
-		//main .innerHTML = main.innerHTML+dotify.components.createPlaylistItem(playlist); 
-		//main.innerHTML=main.innerHTML+dotify.components.createPlaylistList(playlist.songs); 
+		const sixDays = document.querySelector("#sixDays")
+		// Populate Checkboxes with cities at preferences page
+
+		for(let i = 1; i < 7; i++) {
+			sixDays.innerHTML =
+				sixDays.innerHTML + weatherProject.components.createWeatherItemDaily(dayjs().add(i, 'day').format('ddd'), cityDaily , i )
+		}
+
+		const now = dayjs();
+		console.log(now)
+
+		const currentHour = now.hour()
+		console.log(currentHour)
+
+		// Min and Max Temp
+		const minTemp = document.querySelector("#minTemp")
+		minTemp.innerHTML = cityDaily.daily.temperature_2m_min[0] + cityDaily.daily_units.temperature_2m_min
+		const maxTemp = document.querySelector("#maxTemp")
+		maxTemp.innerHTML = cityDaily.daily.temperature_2m_max[0] + cityDaily.daily_units.temperature_2m_max
+
+		// Max Wind
+		const maxWind = document.querySelector("#maxWind")
+		maxWind.innerHTML = cityDaily.daily.wind_speed_10m_max[0] + cityDaily.daily_units.wind_speed_10m_max
+
+		// Weather Condition
+		const weatherCondition = document.querySelector("#weatherCondition")
+		weatherCondition.src = "/images/" + cityDaily.daily.weather_code[0] + ".png"
+
+		// Map of the current city
+		const map = document.querySelector("#map")
+		map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem("currentCity"))
+		
+		//table of the hourly weather
+		const rightNow = document.querySelector("#rightNow")
+            rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour());
+
 		});
 </script>
 
 
 
-<main id= "index" class="box has-background-info is-centered">
+
+<main id="index" class="box has-background-info ">
 	<div class=" is-12 has-text-centered has-text-white">
-		<p id="page-heading"  class="title is-size-1">  </p>
-		<p class="subtitle is-size-2"> Today </p>
+		<p id="page-heading"  class="title is-1">  </p>
 	</div>
 
-	<header class="grid">
-		<div class="cell is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">Cities</h2>
+	<header class="columns has-text-centered">
+		<div class="column is-6"> 
+			<section  class="card" >
+				<header class="card-content">
+					<h2 class="title is-centered">Right now</h2>
+				</header>
+
+				<div id="rightNow" class="card-content">
+				
+				</div>
+
+			</section>
 		</div>
-		<div class="cell is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">Right now</h2>
-		</div>
-		<div class="cell is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">MAP</h2>
+
+		<div class="column is-6">
+			<section  class="card" >
+
+				<header class="card-content">
+					<h2 class="title">Location</h2>
+				</header>
+
+				<div id="map" class="card-content ">					
+				</div>				
+			</section>
 		</div>
 	</header>
 
 
-	<div class="grid">
-		<div class="cell  is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">weather code</h2>
+	<div class="columns is-multiline has-text-centered">
+		<div class="column is-12 has-text-centered has-text-white">
+			<p class="title is-2">Today</p>
 		</div>
-		<div class="cell is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">max temp</h2>
+
+		<div class="column is-3"> 
+			<section id="WeatherCondition" class="card" >
+				<header class="card-content">
+					<h2 class="title is-centered">Weather Codition</h2>
+				</header>
+
+				<div class="card-image ">
+					<figure class="image is-48x48 is-inline-block">	
+						<img id="weatherCondition"  src="#" alt="Image">
+					</figure>
+				</div>
+			</section>
 		</div>
-		<div class="cell is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">Min temp</h2>
+
+		<div class="column is-3">
+			<section  class="card" >
+
+				<header class="card-content">
+					<h2 class="title">Min Temp</h2>
+				</header>
+
+				<div class="card-content ">
+					<p id="minTemp" class="title">6 C</p>
+				</div>
+				
+			</section>
 		</div>
-		<div class="cell is-4 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">Max wind</h2>
+
+		<div class="column is-3">
+			<section  class="card" >
+				<header class="card-content">
+					<h2 class="title">Max Temp</h2>
+				</header>
+
+				<div class="card-content ">
+					<p id="maxTemp" class="title">12 C</p>
+				</div>
+			</section>
 		</div>
+
+		<div class="column is-3">
+			<section class="card" >
+				<header class="card-content">
+					<h2 class="title">Max Wind</h2>
+				</header>
+
+				<div class="card-content ">
+					<p  id="maxWind" class="title">15 m/s </p>
+				</div>
+			</section>		
+		</div>		
 	</div>
 
-	<footer class="grid" >
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">today</h2>
-		</div>
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">monday</h2>
-		</div>
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">tue</h2>
-		</div>
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">wed</h2>
-		</div>
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">thu</h2>
-		</div>
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">fri</h2>
-		</div>
-		<div class="cell is-2 box has-background-black">
-			<h2 class="subtitle has-text-centered is-4">sat</h2>
+
+	<footer id="sixDays" class="columns is-multiline box has-background-info is-centered">
+		<div class="column is-12 has-text-centered has-text-white">
+			<p class="title is-2">6 Days forecast</p>
 		</div>
 	</footer>
 

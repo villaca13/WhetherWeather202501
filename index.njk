@@ -11,7 +11,7 @@ layout: mainLayout.njk
           if(readCheckbox(city))
           {
             dashboard.innerHTML =
-              dashboard.innerHTML + weatherProject.components.createWeatherItem(city, weatherData[city.toLowerCase() + "_daily"] )
+              dashboard.innerHTML + weatherProject.components.createWeatherItem(city, weatherData[city.toLowerCase() + "_daily"], 0 )
           }
         })
     })    
