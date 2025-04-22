@@ -111,15 +111,27 @@ window.weatherProject.components.createWeatherHourlyList = (cityHourly , current
           <tbody>
 `
 for(let i = currentHour; i < currentHour+6; i++) {
-  list += `
-              <tr>
-                  <td>${i+":00"}</td>
-                  <td>${cityHourly.hourly.temperature_2m[i]} ${cityHourly.hourly_units.temperature_2m}</td>
-                  <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>
-                  <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>
-                  <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
-              </tr>
-  `
+    if(i>23){
+      list += `
+      <tr>
+          <td>${i-24+":00"}</td>
+          <td>${cityHourly.hourly.temperature_2m[i]} ${cityHourly.hourly_units.temperature_2m}</td>
+          <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>
+          <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>
+          <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
+      </tr>
+    `
+    }else{
+    list += `
+      <tr>
+          <td>${i+":00"}</td>
+          <td>${cityHourly.hourly.temperature_2m[i]} ${cityHourly.hourly_units.temperature_2m}</td>
+          <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>
+          <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>
+          <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
+      </tr>
+    `
+    }
 }
 
   return list += `

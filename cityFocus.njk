@@ -62,12 +62,10 @@ layout: mainLayout.njk
 		
 		//table of the hourly weather
 		const rightNow = document.querySelector("#rightNow")
-            rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour());
+        rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour());
 
 		});
 </script>
-
-
 
 
 <main id="index" class="box has-background-info ">
