@@ -11,11 +11,7 @@ layout: mainLayout.njk
 		const urlParams = new URLSearchParams(window.location.search); 
 	
 		//* This is used to get the current city from local storage.
-		if(urlParams.get('city') === null) {
-			if(localStorage.getItem("currentCity") === null) {
-				localStorage.setItem("currentCity", cities[0])
-			}
-		} else {
+		if(urlParams.get('city') !== null) {
 			localStorage.setItem("currentCity", urlParams.get('city'))
 		}
 

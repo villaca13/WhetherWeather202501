@@ -27,11 +27,20 @@
     <script>
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
-
     const cities = getListOfCities(dataKeyNames)
 
- 
-    
+    // creating local storage just in case it is the first access to the page
+    //Checkboxes in the preferences page
+    cities.forEach((city) => {
+      if(localStorage.getItem(city) === null) {
+        localStorage.setItem(city, true) 
+      }     
+    })
+    // Current city in the cityFocus page
+    if(localStorage.getItem("currentCity") === null) {
+			localStorage.setItem("currentCity", cities[0])
+		}
+  
     console.log(cities)   
      
     document.addEventListener('DOMContentLoaded', () => {
@@ -113,7 +122,7 @@
               dashboard.innerHTML + weatherProject.components.createWeatherItem(city, weatherData[city.toLowerCase() + "_daily"], 0 )
           }
         })
-    })    
+    })  
 </script>
 
 <main id="dashboard" class="columns is-multiline box has-background-info is-centered">

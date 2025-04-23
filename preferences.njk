@@ -6,16 +6,11 @@ layout: mainLayout.njk
 
         createCheckboxes (cities)
         cities.forEach((city) => {
-            if(localStorage.getItem(city) === null) {
-                localStorage.setItem(city, true)
-                updateCheckbox (city, true) 
+            const isChecked = localStorage.getItem(city) === "true" ? true : false
+            updateCheckbox (city, isChecked) 
 
-            } else {
-                const isChecked = localStorage.getItem(city) === "true" ? true : false
-                updateCheckbox (city, isChecked)                 
-            }
+            })
         })
-    })
 
     // * This is used to save the state of the checkboxes in local storage.
     // * When the page is loaded, it will check the local storage and set the checkbox state accordingly.
