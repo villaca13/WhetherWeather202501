@@ -33,13 +33,13 @@ function hasUnderscore(s) {
     return s.indexOf('_') >= 0;
 }
 
-// Function to create a list of checkboxes for each city
-function createCheckboxes (cities) {
-  const cityCheckboxes = document.querySelector("#citiesCheckboxes")
-  // Populate Checkboxes with cities at preferences page
-  cities.forEach((city) => {
-      cityCheckboxes.innerHTML =
-          cityCheckboxes.innerHTML + weatherProject.components.createCitiesCheckbox(city)
+// Function to create a list of checkboxes 
+function createCheckboxes (items, tagID) {
+  const checkboxPlace = document.querySelector("#"+tagID)
+  // Populate Checkboxes with items at preferences page
+  items.forEach((item) => {
+    checkboxPlace.innerHTML =
+      checkboxPlace.innerHTML + weatherProject.components.createCheckboxItem(item)
   })
 }
 

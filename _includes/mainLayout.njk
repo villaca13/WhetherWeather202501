@@ -28,9 +28,10 @@
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
     const cities = getListOfCities(dataKeyNames)
+    const preferences = ["showMap", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
     // creating local storage just in case it is the first access to the page
-    //Checkboxes in the preferences page
+    //Cities checkboxes in the settings page
     cities.forEach((city) => {
       if(localStorage.getItem(city) === null) {
         localStorage.setItem(city, true) 
@@ -40,7 +41,13 @@
     if(localStorage.getItem("currentCity") === null) {
 			localStorage.setItem("currentCity", cities[0])
 		}
-  
+    //Preferences checkboxes in the settings page
+    preferences.forEach((item) => {
+      if(localStorage.getItem(item) === null) {
+        localStorage.setItem(item, true) 
+      }     
+    })
+
     console.log(cities)   
      
     document.addEventListener('DOMContentLoaded', () => {
@@ -63,10 +70,7 @@
         });
       });
   });
-
-
-
-    </script>
+  </script>
 
 
   </head>

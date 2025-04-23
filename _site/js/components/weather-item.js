@@ -45,12 +45,28 @@ window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) =>
 }
 
 
-window.weatherProject.components.createCitiesCheckbox = (city) => {
+window.weatherProject.components.createCheckboxItem = (item) => {
         return `
         <label class="checkbox column">            
-            <input type="checkbox" id="${city}" class="cityCheckbox"  />
-            ${city.replace(/_/g, " ")}
+            <input type="checkbox" id="${item}" class="CheckboxItem"  />
+            ${item.replace(/_/g, " ")}
         </label>`
+}
+
+window.weatherProject.components.createMapPlace = () => {
+  return `
+  		<div class="column">
+			<section  class="card" >
+
+				<header class="card-content">
+					<h2 class="title">Location</h2>
+				</header>
+
+				<div id="map" class="card-content ">					
+				</div>				
+			</section>
+		</div>
+  `
 }
 
 window.weatherProject.components.getMap = (city) => {

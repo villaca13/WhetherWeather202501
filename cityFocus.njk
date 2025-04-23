@@ -53,8 +53,14 @@ layout: mainLayout.njk
 		weatherCondition.src = "/images/" + cityDaily.daily.weather_code[0] + ".png"
 
 		// Map of the current city
-		const map = document.querySelector("#map")
-		map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem("currentCity"))
+		if(localStorage.getItem("showMap") === "true" ? true : false) {
+			const mapPlace = document.querySelector("#headerMain")
+			mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
+
+			const map = document.querySelector("#map")
+			map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem("currentCity"))
+		}
+
 		
 		//table of the hourly weather
 		const rightNow = document.querySelector("#rightNow")
@@ -69,35 +75,30 @@ layout: mainLayout.njk
 		<p id="page-heading"  class="title is-1">  </p>
 	</div>
 
-	<header class="columns has-text-centered">
-		<div class="column is-6"> 
+	<header id="headerMain" class="columns has-text-centered">
+		<div class="column"> 
 			<section  class="card" >
 				<header class="card-content">
 					<h2 class="title is-centered">Right now</h2>
 				</header>
 
-				<div id="rightNow" class="card-content">
-				
+				<div id="rightNow" class="card-content">				
 				</div>
 
 			</section>
 		</div>
 
-		<div class="column is-6">
-			<section  class="card" >
 
-				<header class="card-content">
-					<h2 class="title">Location</h2>
-				</header>
-
-				<div id="map" class="card-content ">					
-				</div>				
-			</section>
-		</div>
 	</header>
 
+	<div id="sixDays" class="columns is-multiline box has-background-info is-centered">
+		<div class="column is-12 has-text-centered has-text-white">
+			<p class="title is-2">6 Days forecast</p>
+		</div>
+	</div>
 
-	<div class="columns is-multiline has-text-centered">
+
+	<footer class="columns is-multiline has-text-centered">
 		<div class="column is-12 has-text-centered has-text-white">
 			<p class="title is-2">Today</p>
 		</div>
@@ -153,15 +154,7 @@ layout: mainLayout.njk
 				</div>
 			</section>		
 		</div>		
-	</div>
-
-
-	<footer id="sixDays" class="columns is-multiline box has-background-info is-centered">
-		<div class="column is-12 has-text-centered has-text-white">
-			<p class="title is-2">6 Days forecast</p>
-		</div>
-	</footer>
-
+	</footer
 
 
 </main>

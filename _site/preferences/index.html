@@ -28,9 +28,10 @@
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
     const cities = getListOfCities(dataKeyNames)
+    const preferences = ["showMap", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
     // creating local storage just in case it is the first access to the page
-    //Checkboxes in the preferences page
+    //Cities checkboxes in the settings page
     cities.forEach((city) => {
       if(localStorage.getItem(city) === null) {
         localStorage.setItem(city, true) 
@@ -40,7 +41,13 @@
     if(localStorage.getItem("currentCity") === null) {
 			localStorage.setItem("currentCity", cities[0])
 		}
-  
+    //Preferences checkboxes in the settings page
+    preferences.forEach((item) => {
+      if(localStorage.getItem(item) === null) {
+        localStorage.setItem(item, true) 
+      }     
+    })
+
     console.log(cities)   
      
     document.addEventListener('DOMContentLoaded', () => {
@@ -63,10 +70,7 @@
         });
       });
   });
-
-
-
-    </script>
+  </script>
 
 
   </head>
@@ -112,22 +116,32 @@
     <script>
     document.addEventListener("DOMContentLoaded", () => {    
 
-        createCheckboxes (cities)
+        // create city checkboxes in the settings page
+        createCheckboxes (cities, "citiesCheckboxes")
         cities.forEach((city) => {
             const isChecked = localStorage.getItem(city) === "true" ? true : false
             updateCheckbox (city, isChecked) 
 
             })
+
+        // create preferences checkboxes in the settings page
+        createCheckboxes (preferences, "preferencesCheckboxes")
+        preferences.forEach((item) => {
+            const isChecked = localStorage.getItem(item) === "true" ? true : false
+            updateCheckbox (item, isChecked) 
+
         })
+
+    })
 
     // * This is used to save the state of the checkboxes in local storage.
     // * When the page is loaded, it will check the local storage and set the checkbox state accordingly.
     document.addEventListener("DOMContentLoaded", () => { 
-        var citiesCheckBox = document.querySelectorAll("input[class='cityCheckbox']")
+        var checkBoxItems = document.querySelectorAll("input[class='CheckboxItem']")
         //console.log(citiesCheckBox)
 
-        citiesCheckBox.forEach((checkbox) => {
-            checkbox.addEventListener('change', function() {
+        checkBoxItems.forEach((item) => {
+            item.addEventListener('change', function() {
                 if (this.checked) {                    
                     localStorage.setItem(this.id, true)
                 } else {
@@ -136,6 +150,7 @@
             })
         })
     })
+
     </script>
 
 <main id="preferences" class="columns is-multiline box has-background-info is-centered">
@@ -148,45 +163,9 @@
         <h2 class="subtitle has-text-centered is-4">Cities</h2>
     </div>
 
-    <div class="column is-2 is-offset-2 checkboxes is-multiline box has-background-black">
+    <div id="preferencesCheckboxes" class="column is-2 is-offset-2 checkboxes is-multiline box has-background-black">
         <h2 class="subtitle has-text-centered is-4">Preferences</h2>
-        <label class="checkbox column">
-            <input type="checkbox" />
-            Monday
-        </label>
-
-        <label class="checkbox column">
-            <input type="checkbox" />
-            Tuesday
-        </label>
-
-        <label class="checkbox column">
-            <input type="checkbox" />
-            Wednesday
-        </label>
-
-        <label class="checkbox column">
-            <input type="checkbox" />
-            Thursday
-        </label>
-
-        <label class="checkbox column">
-            <input type="checkbox" />
-            Friday
-        </label>
-
-        <label class="checkbox column">
-            <input type="checkbox" checked />
-            Saturday
-        </label>
-
-        <label class="checkbox column">
-            <input type="checkbox" checked />
-            Sunday
-        </label>
     </div>
-
-
 
 </main>
 
