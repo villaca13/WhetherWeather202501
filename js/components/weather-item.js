@@ -113,7 +113,7 @@ window.weatherProject.components.getMap = (city) => {
 
 }
 
-window.weatherProject.components.createWeatherHourlyList = (cityHourly , currentHour) => {
+window.weatherProject.components.createWeatherHourlyList = (cityHourly , currentHour, hoursAhead) => {
   let list = `
   <div class="column ">
       <table class="table is-fullwidth">
@@ -128,7 +128,8 @@ window.weatherProject.components.createWeatherHourlyList = (cityHourly , current
           </thead>
           <tbody>
 `
-for(let i = currentHour; i < currentHour+6; i++) {
+
+for(let i = currentHour; i < currentHour+hoursAhead; i++) {
     if(i>23){
       list += `
       <tr>

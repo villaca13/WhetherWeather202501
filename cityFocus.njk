@@ -77,7 +77,7 @@ layout: mainLayout.njk
 		weatherCondition.src = "/images/" + cityDaily.daily.weather_code[localStorage.getItem("currentDay")] + ".png"
 
 		// Map of the current city
-		if(localStorage.getItem("showMap") === "true" ? true : false) {
+		if(localStorage.getItem("Show_Map") === "true" ? true : false) {
 			const mapPlace = document.querySelector("#headerMain")
 			mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
 
@@ -87,9 +87,14 @@ layout: mainLayout.njk
 
 		
 		//table of the hourly weather
-		const rightNow = document.querySelector("#rightNow")
-        rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour());
-
+		if(localStorage.getItem("Show_12_hours_forecast") === "true" ? true : false){
+			const rightNow = document.querySelector("#rightNow")
+			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour(), 12);
+		}else{
+			const rightNow = document.querySelector("#rightNow")
+			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, currentHour, 6);
+		}
+		
 		});
 
 </script>

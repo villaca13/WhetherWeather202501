@@ -28,7 +28,7 @@
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
     const cities = getListOfCities(dataKeyNames)
-    const preferences = ["showMap", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    const preferences = ["Show_Map", "Show_12_hours_forecast", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
     // creating local storage just in case it is the first access to the page
     //Cities checkboxes in the settings page
@@ -195,7 +195,7 @@
 		weatherCondition.src = "/images/" + cityDaily.daily.weather_code[localStorage.getItem("currentDay")] + ".png"
 
 		// Map of the current city
-		if(localStorage.getItem("showMap") === "true" ? true : false) {
+		if(localStorage.getItem("Show_Map") === "true" ? true : false) {
 			const mapPlace = document.querySelector("#headerMain")
 			mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
 
@@ -205,9 +205,14 @@
 
 		
 		//table of the hourly weather
-		const rightNow = document.querySelector("#rightNow")
-        rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour());
-
+		if(localStorage.getItem("Show_12_hours_forecast") === "true" ? true : false){
+			const rightNow = document.querySelector("#rightNow")
+			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour(), 12);
+		}else{
+			const rightNow = document.querySelector("#rightNow")
+			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, currentHour, 6);
+		}
+		
 		});
 
 </script>
