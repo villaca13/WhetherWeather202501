@@ -57,7 +57,7 @@ window.weatherProject.components.getMap = (city) => {
   switch(city) {
     case "Amsterdam":
       return `
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77979.66565661412!2d4.8215604995263925!3d52.354741843979895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c63fb5949a7755%3A0x"100%fd4cb7c0af8d!2sAmsterdam%2C%20Netherlands!5e0!3m2!1sen!2sie!4v1745319589723!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77979.66565661412!2d4.8215604995263925!3d52.354741843979895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c63fb5949a7755%3A0x6600fd4cb7c0af8d!2sAmsterdam%2C%20Netherlands!5e0!3m2!1sen!2sie!4v1745407715957!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         `
     case "Berlin":
       return `
@@ -69,7 +69,7 @@ window.weatherProject.components.getMap = (city) => {
         `
     case "Cork":
       return `
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78781.650"100%5408!2d-8.578891873262496!3d51.8988039062273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4844900891beb961%3A0xa00c7a99731c5d0!2sCork!5e0!3m2!1sen!2sie!4v1745319873826!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78781.650100%5408!2d-8.578891873262496!3d51.8988039062273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4844900891beb961%3A0xa00c7a99731c5d0!2sCork!5e0!3m2!1sen!2sie!4v1745319873826!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         `
     case "New_York":
       return `
@@ -77,7 +77,7 @@ window.weatherProject.components.getMap = (city) => {
         `
     case "Paris":
       return `
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.77816185035!2d2.264634028831008!3d48.85893848"100%856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2sie!4v1745319913579!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.77816185035!2d2.264634028831008!3d48.85893848100%856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2sie!4v1745319913579!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         `
     case "San_Francisco":
       return `
