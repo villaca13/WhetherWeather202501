@@ -17,6 +17,14 @@ Deployment: Netlify.
 - Responsive design for desktop.
 - website to present and show intructions on how to play the Bouncing ball game and to use its features. 
 - Flexbox for navigation 
+-NEWWWW
+- 7 days forecast 
+- start at dashboar , click on the city you want and see city focus, 
+- on city focus, click on day you want and get more details about the date you want 
+- preferences are save and loaded when the wwbsite is loaded. 
+last seen city is loaded as well. 
+Nav bar and Nav burger is implemented
+layouts, partials and templates are implemented
 
 ---
 

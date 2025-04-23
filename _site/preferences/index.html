@@ -37,16 +37,22 @@
         localStorage.setItem(city, true) 
       }     
     })
-    // Current city in the cityFocus page
-    if(localStorage.getItem("currentCity") === null) {
-			localStorage.setItem("currentCity", cities[0])
-		}
     //Preferences checkboxes in the settings page
     preferences.forEach((item) => {
       if(localStorage.getItem(item) === null) {
         localStorage.setItem(item, true) 
       }     
     })
+    // Current city in the cityFocus page
+    if(localStorage.getItem("currentCity") === null) {
+			localStorage.setItem("currentCity", cities[0])
+		}
+    // Current day in the cityFocus page
+    if(localStorage.getItem("currentDay") === null) {
+			localStorage.setItem("currentDay", 0)
+		}
+
+
 
     console.log(cities)   
      

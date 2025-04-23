@@ -24,15 +24,17 @@ window.weatherProject.components.createWeatherItem = (city, cityDaily, i) => {
 
 window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) => {
   return `
-  <div class="column is-2">
+  <div class="column is-3">
     <section class="card has-text-centered" >
       <header class="card-header">
-        <p class="card-footer-item">  ${day} </p>
+        <p class="card-footer-item"> ${day} </p>
       </header>
 
       <div class="card-image ">
         <figure class="image is-128x128 is-inline-block">	
-          <img src="/images/${cityDaily.daily.weather_code[i]}.png" alt="Image">
+          <a href="/cityFocus/?day=${i}" >
+            <img src="/images/${cityDaily.daily.weather_code[i]}.png" alt="Image">
+          </a>
         </figure>
       </div>
 
