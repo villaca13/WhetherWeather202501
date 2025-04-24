@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" data-theme="dark"> <!-- Dark Theme selected -->
+<html lang="en" >
 
   <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
     const weatherData = weatherProject.dataStore.list()
     const dataKeyNames = Object.keys(weatherData)
     const cities = getListOfCities(dataKeyNames)
-    const preferences = ["Show_Map", "Show_12_hours_forecast", "Show_Rain", "thursday", "friday", "saturday", "sunday"]
+    const preferences = ["Show_Map", "Show_12_hours_forecast", "Show_Rain", "Dark_Theme", "friday", "saturday", "sunday"]
 
     // creating local storage just in case it is the first access to the page
     //Cities checkboxes in the settings page
@@ -52,12 +52,15 @@
 			localStorage.setItem("currentDay", 0)
 		}
 
+    // Setting theme
+    setDarkTheme(localStorage.getItem("Dark_Theme") === "true" ? true : false)
 
 
-    console.log(cities)   
+    
+
+    //console.log(cities)   
      
     document.addEventListener('DOMContentLoaded', () => {
-
       // Get all "navbar-burger" elements
       const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -81,7 +84,7 @@
 
   </head>
 
-  <body class="container">
+  <body class="container" > 
     {% include "header.njk" %}
       
     {{ content | safe }}

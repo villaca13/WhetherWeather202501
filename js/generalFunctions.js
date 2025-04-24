@@ -53,4 +53,8 @@ function updateCheckbox (idCheckbox, value) {
   document.querySelector("#"+idCheckbox).checked = value
 }
 
-
+// Function to read the value of a checkbox and update the value of the checkbox
+function setDarkTheme (darkTheme) {
+  // Changing the theme of the page
+  document.querySelector("html").setAttribute("data-theme", darkTheme === true ? "dark" : "light")
+}

@@ -35,6 +35,14 @@ layout: mainLayout.njk
                 } else {
                     localStorage.setItem(this.id, false)
                 }
+                if (this.id === "Dark_Theme") {
+                    // Refresh the page after a delay of 0.5 seconds
+                    setTimeout(function(){
+                        location.reload();
+                    }, 500); // 500 milliseconds = 0.5 seconds
+                }
+
+
             })
         })
     })
@@ -47,11 +55,11 @@ layout: mainLayout.njk
     </div>
 
 
-    <div id="citiesCheckboxes" class="column is-2 checkboxes is-multiline box has-background-black">
+    <div id="citiesCheckboxes" class="column is-2 checkboxes is-multiline box">
         <h2 class="subtitle has-text-centered is-4">Cities</h2>
     </div>
 
-    <div id="preferencesCheckboxes" class="column is-2 is-offset-2 checkboxes is-multiline box has-background-black">
+    <div id="preferencesCheckboxes" class="column is-2 is-offset-2 checkboxes is-multiline box">
         <h2 class="subtitle has-text-centered is-4">Preferences</h2>
     </div>
 
