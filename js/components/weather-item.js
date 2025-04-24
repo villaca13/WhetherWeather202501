@@ -1,16 +1,41 @@
 window.weatherProject.components.createWeatherItem = (city, cityDaily, i) => {
     return `
     <div class="column is-4">
+      <a href="/cityFocus/?city=${city}" >
+        <section class="card has-text-centered" >
+          <header class="card-header">
+            <p class="card-header-title is-size-4 is-centered">
+              ${city.replace(/_/g, " ")}          
+            </p>
+          </header>
+
+          <div class="card-image ">
+            <figure class="image is-128x128 is-inline-block">	
+              <img src="/images/${cityDaily.daily.weather_code[i]}.png" alt="Image">
+            </figure>
+          </div>
+
+          <footer class="card-footer">
+            <p class="card-footer-item"> ${cityDaily.daily.temperature_2m_min[i]} ${cityDaily.daily_units.temperature_2m_min} </p>
+            <p class="card-footer-item"> ${cityDaily.daily.temperature_2m_max[i]} ${cityDaily.daily_units.temperature_2m_max} </p>
+          </footer>
+        </section>
+      </a>
+    </div>`
+}
+
+window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) => {
+  return `
+  <div class="column is-3">
+    <a href="/cityFocus/?day=${i}" >
       <section class="card has-text-centered" >
         <header class="card-header">
-         <a href="/cityFocus/?city=${city}" class="card-header-title is-size-4 is-centered">
-            ${city.replace(/_/g, " ")}          
-          </a>
+          <p class="card-footer-item"> ${day} </p>
         </header>
 
         <div class="card-image ">
-          <figure class="image is-128x128 is-inline-block">	
-            <img src="/images/${cityDaily.daily.weather_code[i]}.png" alt="Image">
+          <figure class="image is-128x128 is-inline-block">
+              <img src="/images/${cityDaily.daily.weather_code[i]}.png" alt="Image">      
           </figure>
         </div>
 
@@ -19,30 +44,7 @@ window.weatherProject.components.createWeatherItem = (city, cityDaily, i) => {
           <p class="card-footer-item"> ${cityDaily.daily.temperature_2m_max[i]} ${cityDaily.daily_units.temperature_2m_max} </p>
         </footer>
       </section>
-    </div>`
-}
-
-window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) => {
-  return `
-  <div class="column is-3">
-    <section class="card has-text-centered" >
-      <header class="card-header">
-        <p class="card-footer-item"> ${day} </p>
-      </header>
-
-      <div class="card-image ">
-        <figure class="image is-128x128 is-inline-block">	
-          <a href="/cityFocus/?day=${i}" >
-            <img src="/images/${cityDaily.daily.weather_code[i]}.png" alt="Image">
-          </a>
-        </figure>
-      </div>
-
-      <footer class="card-footer">
-        <p class="card-footer-item"> ${cityDaily.daily.temperature_2m_min[i]} ${cityDaily.daily_units.temperature_2m_min} </p>
-        <p class="card-footer-item"> ${cityDaily.daily.temperature_2m_max[i]} ${cityDaily.daily_units.temperature_2m_max} </p>
-      </footer>
-    </section>
+    </a>
   </div>`
 }
 
