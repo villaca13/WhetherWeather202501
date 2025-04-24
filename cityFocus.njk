@@ -31,9 +31,35 @@ layout: mainLayout.njk
 	
 		document.getElementById('page-heading').textContent= localStorage.getItem("currentCity").replace(/_/g, " "); 
 		
-		const sevenDays = document.querySelector("#sevenDays")
-		// Populate Checkboxes with cities at preferences page
+		// getting current date and time
+		const now = dayjs();
+		console.log(now)
 
+		const currentHour = now.hour()
+		console.log(currentHour)
+
+
+		//table of the hourly weather
+		if(localStorage.getItem("Show_12_hours_forecast") === "true" ? true : false){
+			const rightNow = document.querySelector("#rightNow")
+			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour(), 12);
+		}else{
+			const rightNow = document.querySelector("#rightNow")
+			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, currentHour, 6);
+		}
+
+		// Map of the current city
+		if(localStorage.getItem("Show_Map") === "true" ? true : false) {
+			const mapPlace = document.querySelector("#headerMain")
+			mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
+
+			const map = document.querySelector("#map")
+			map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem("currentCity"))
+		}
+
+		const sevenDays = document.querySelector("#sevenDays")
+
+		// Populate Checkboxes with cities at preferences page
 		for(let i = 0; i < 7; i++) {
 			if(i == 0) {
 				sevenDays.innerHTML =
@@ -45,11 +71,7 @@ layout: mainLayout.njk
 
 		}
 
-		const now = dayjs();
-		console.log(now)
 
-		const currentHour = now.hour()
-		console.log(currentHour)
 
 		// Current Day Title
 		const currentDay = document.querySelector("#currentDay")
@@ -76,24 +98,15 @@ layout: mainLayout.njk
 		const weatherCondition = document.querySelector("#weatherCondition")
 		weatherCondition.src = "/images/" + cityDaily.daily.weather_code[localStorage.getItem("currentDay")] + ".png"
 
-		// Map of the current city
-		if(localStorage.getItem("Show_Map") === "true" ? true : false) {
-			const mapPlace = document.querySelector("#headerMain")
-			mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
+		// Rain precipitation %
+		if(localStorage.getItem("Show_Rain") === "true" ? true : false) {
+			const rainPlace = document.querySelector("#dayDetails")
+			rainPlace.innerHTML = rainPlace.innerHTML + weatherProject.components.createDayDetails("Show_Rain"," Rain (%)")
 
-			const map = document.querySelector("#map")
-			map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem("currentCity"))
+			const rain = document.querySelector("#Show_Rain")
+			rain.innerHTML = cityDaily.daily.precipitation_probability_max[localStorage.getItem("currentDay")] + cityDaily.daily_units.precipitation_probability_max
 		}
 
-		
-		//table of the hourly weather
-		if(localStorage.getItem("Show_12_hours_forecast") === "true" ? true : false){
-			const rightNow = document.querySelector("#rightNow")
-			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour(), 12);
-		}else{
-			const rightNow = document.querySelector("#rightNow")
-			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, currentHour, 6);
-		}
 		
 		});
 
@@ -128,12 +141,12 @@ layout: mainLayout.njk
 	</div>
 
 
-	<footer class="columns is-multiline has-text-centered">
+	<footer id="dayDetails" class="columns is-multiline has-text-centered">
 		<div class="column is-12 has-text-centered has-text-white">
 			<p id= "currentDay" class="title is-2"></p>
 		</div>
 
-		<div class="column is-3"> 
+		<div class="column"> 
 			<section id="WeatherCondition" class="card" >
 				<header class="card-content">
 					<h2 class="title is-centered">Weather Codition</h2>
@@ -147,7 +160,7 @@ layout: mainLayout.njk
 			</section>
 		</div>
 
-		<div class="column is-3">
+		<div class="column">
 			<section  class="card" >
 
 				<header class="card-content">
@@ -161,7 +174,7 @@ layout: mainLayout.njk
 			</section>
 		</div>
 
-		<div class="column is-3">
+		<div class="column">
 			<section  class="card" >
 				<header class="card-content">
 					<h2 class="title">Max Temp</h2>
@@ -173,7 +186,7 @@ layout: mainLayout.njk
 			</section>
 		</div>
 
-		<div class="column is-3">
+		<div class="column">
 			<section class="card" >
 				<header class="card-content">
 					<h2 class="title">Max Wind</h2>

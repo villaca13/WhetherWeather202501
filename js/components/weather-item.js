@@ -48,6 +48,20 @@ window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) =>
   </div>`
 }
 
+window.weatherProject.components.createDayDetails = (ID, title) => {
+  return `
+    <div class="column"> 
+    <section class="card" >
+      <header class="card-content">
+        <h2 class="title is-centered">${title}</h2>
+      </header>
+				<div class="card-content ">
+					<p id="${ID}" class="title">6 C</p>
+				</div>
+    </section>
+  </div>`
+}
+
 
 window.weatherProject.components.createCheckboxItem = (item) => {
         return `
@@ -116,6 +130,7 @@ window.weatherProject.components.getMap = (city) => {
 }
 
 window.weatherProject.components.createWeatherHourlyList = (cityHourly , currentHour, hoursAhead) => {
+  const rainIsChecked = localStorage.getItem("Show_Rain") === "true" ? true : false;
   let list = `
   <div class="column ">
       <table class="table is-fullwidth">
@@ -123,8 +138,13 @@ window.weatherProject.components.createWeatherHourlyList = (cityHourly , current
               <tr>
                   <th>Hour</th>
                   <th>Temp</th>
-                  <th>Wind</th>
-                  <th>Rain(%)</th>
+                  <th>Wind</th>` 
+
+  if(rainIsChecked) {
+    list += `
+                  <th>Rain(%)</th>`
+  }
+  list += `                  
                   <th>Weather</th>
               </tr>
           </thead>
@@ -137,8 +157,12 @@ for(let i = currentHour; i < currentHour+hoursAhead; i++) {
       <tr>
           <td>${i-24+":00"}</td>
           <td>${cityHourly.hourly.temperature_2m[i]} ${cityHourly.hourly_units.temperature_2m}</td>
-          <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>
-          <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>
+          <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>`          
+          if(rainIsChecked) {
+            list += `          
+          <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>`
+          }
+      list += `
           <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
       </tr>
     `
@@ -147,8 +171,12 @@ for(let i = currentHour; i < currentHour+hoursAhead; i++) {
       <tr>
           <td>${i+":00"}</td>
           <td>${cityHourly.hourly.temperature_2m[i]} ${cityHourly.hourly_units.temperature_2m}</td>
-          <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>
-          <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>
+          <td>${cityHourly.hourly.wind_speed_10m[i]} ${cityHourly.hourly_units.wind_speed_10m}</td>`
+          if(rainIsChecked) {
+            list += `          
+          <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>`
+          }
+    list += `
           <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
       </tr>
     `
