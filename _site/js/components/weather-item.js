@@ -1,3 +1,6 @@
+// This file contains general functions used in the project
+
+//  City weather item present in dashboard page
 window.weatherProject.components.createWeatherItem = (city, cityDaily, i) => {
     return `
     <div class="column is-4">
@@ -23,7 +26,7 @@ window.weatherProject.components.createWeatherItem = (city, cityDaily, i) => {
       </a>
     </div>`
 }
-
+// Day weather item present in cityFocus page
 window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) => {
   return `
   <div class="column is-3">
@@ -47,22 +50,21 @@ window.weatherProject.components.createWeatherItemDaily = (day, cityDaily, i) =>
     </a>
   </div>`
 }
-
+// day weathey details present in cityFocus page
 window.weatherProject.components.createDayDetails = (ID, title) => {
   return `
     <div class="column"> 
     <section class="card" >
       <header class="card-content">
-        <h2 class="title is-centered">${title}</h2>
+        <h2 class="title is-4">${title}</h2>
       </header>
 				<div class="card-content ">
-					<p id="${ID}" class="title">6 C</p>
+					<p id="${ID}" class="subtitle is-4"></p>
 				</div>
     </section>
   </div>`
 }
-
-
+// Checkbox item present in preferences page
 window.weatherProject.components.createCheckboxItem = (item) => {
         return `
         <label class="checkbox column">            
@@ -70,7 +72,7 @@ window.weatherProject.components.createCheckboxItem = (item) => {
             ${item.replace(/_/g, " ")}
         </label>`
 }
-
+// map container present in cityFocus page
 window.weatherProject.components.createMapPlace = () => {
   return `
   		<div class="column">
@@ -86,7 +88,7 @@ window.weatherProject.components.createMapPlace = () => {
 		</div>
   `
 }
-
+// embeded map present in cityFocus page
 window.weatherProject.components.getMap = (city) => {
   switch(city) {
     case "Amsterdam":
@@ -126,14 +128,15 @@ window.weatherProject.components.getMap = (city) => {
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39084.3295454167!2d-7.154229294786516!3d52.24755033022008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4842c69c63d9e44d%3A0xc5bb81888b67b9fb!2sWaterford!5e0!3m2!1sen!2sie!4v1745319510156!5m2!1sen!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         `
   }  
-
 }
 
+// table for Weather hourly list present in cityFocus page
 window.weatherProject.components.createWeatherHourlyList = (cityHourly , currentHour, hoursAhead) => {
-  const rainIsChecked = localStorage.getItem("Show_Rain") === "true" ? true : false;
+  const rainIsChecked = localStorage.getItem(showRain) === "true" ? true : false;
+  const feelsLikeIsChecked = localStorage.getItem(showFeelsLikeTemp) === "true" ? true : false;
   let list = `
-  <div class="column ">
-      <table class="table is-fullwidth">
+  <div class="column">
+      <table class="table is-striped is-hoverable is-fullwidth">
           <thead>
               <tr>
                   <th>Hour</th>
@@ -144,13 +147,16 @@ window.weatherProject.components.createWeatherHourlyList = (cityHourly , current
     list += `
                   <th>Rain(%)</th>`
   }
+  if(feelsLikeIsChecked) {
+    list += `
+                  <th>Feels Like</th>`
+  }
   list += `                  
                   <th>Weather</th>
               </tr>
           </thead>
           <tbody>
 `
-
 for(let i = currentHour; i < currentHour+hoursAhead; i++) {
     if(i>23){
       list += `
@@ -161,6 +167,10 @@ for(let i = currentHour; i < currentHour+hoursAhead; i++) {
           if(rainIsChecked) {
             list += `          
           <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>`
+          }
+          if(feelsLikeIsChecked) {
+            list += `          
+          <td>${cityHourly.hourly.apparent_temperature[i]} ${cityHourly.hourly_units.apparent_temperature}</td>`
           }
       list += `
           <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
@@ -176,13 +186,16 @@ for(let i = currentHour; i < currentHour+hoursAhead; i++) {
             list += `          
           <td>${cityHourly.hourly.precipitation_probability[i]} ${cityHourly.hourly_units.precipitation_probability}</td>`
           }
+          if(feelsLikeIsChecked) {
+            list += `          
+          <td>${cityHourly.hourly.apparent_temperature[i]} ${cityHourly.hourly_units.apparent_temperature}</td>`
+          }
     list += `
           <td><img class="image is-48x48" src="/images/${cityHourly.hourly.weather_code[i]}.png" alt="Image"></td>
       </tr>
     `
     }
 }
-
   return list += `
           </tbody>
       </table>

@@ -9,7 +9,6 @@ layout: mainLayout.njk
         cities.forEach((city) => {
             const isChecked = localStorage.getItem(city) === "true" ? true : false
             updateCheckbox (city, isChecked) 
-
             })
 
         // create preferences checkboxes in the settings page
@@ -17,16 +16,13 @@ layout: mainLayout.njk
         preferences.forEach((item) => {
             const isChecked = localStorage.getItem(item) === "true" ? true : false
             updateCheckbox (item, isChecked) 
-
         })
-
     })
 
     // * This is used to save the state of the checkboxes in local storage.
     // * When the page is loaded, it will check the local storage and set the checkbox state accordingly.
     document.addEventListener("DOMContentLoaded", () => { 
         var checkBoxItems = document.querySelectorAll("input[class='CheckboxItem']")
-        //console.log(citiesCheckBox)
 
         checkBoxItems.forEach((item) => {
             item.addEventListener('change', function() {
@@ -35,25 +31,21 @@ layout: mainLayout.njk
                 } else {
                     localStorage.setItem(this.id, false)
                 }
-                if (this.id === "Dark_Theme") {
+                if (this.id === darkTheme) {
                     // Refresh the page after a delay of 0.5 seconds
                     setTimeout(function(){
                         location.reload();
                     }, 500); // 500 milliseconds = 0.5 seconds
                 }
-
-
             })
         })
     })
-
     </script>
 
 <main id="preferences" class="columns is-multiline box has-background-info is-centered">
     <div class="column is-12 has-text-centered has-text-white">
         <h1 class="title">User Settings</h1>
     </div>
-
 
     <div id="citiesCheckboxes" class="column is-2 checkboxes is-multiline box">
         <h2 class="subtitle has-text-centered is-4">Cities</h2>
@@ -62,7 +54,6 @@ layout: mainLayout.njk
     <div id="preferencesCheckboxes" class="column is-2 is-offset-2 checkboxes is-multiline box">
         <h2 class="subtitle has-text-centered is-4">Preferences</h2>
     </div>
-
 </main>
 
 

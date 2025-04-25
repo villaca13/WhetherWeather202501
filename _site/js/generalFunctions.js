@@ -1,3 +1,22 @@
+//constants for the weather project
+const weatherData = weatherProject.dataStore.list()
+const dataKeyNames = Object.keys(weatherData)
+const cities = getListOfCities(dataKeyNames)
+const currentDay = "currentDay"
+const currentCity = "currentCity"
+
+//preferences constants
+const showMap = "Show_Map"
+const show12HoursForecast = "Show_12_hours_forecast"
+const showRain = "Show_Rain"
+const showFeelsLikeTemp = "Show_Feels_Like_Temp"
+const darkTheme = "Dark_Theme"
+const preferences = [showMap, show12HoursForecast, showRain, showFeelsLikeTemp, darkTheme]
+
+// get weather data for the current city
+const cityDaily = weatherData[localStorage.getItem(currentCity).toLowerCase() + "_daily"]
+const cityHourly = weatherData[localStorage.getItem(currentCity).toLowerCase() + "_hourly"]
+
 // Function to get the list of cities from the keys of the weather data object
 // This function takes an object as an argument and returns an array of city names
 function getListOfCities (citiesKeyNames) {
@@ -16,7 +35,6 @@ function getListOfCities (citiesKeyNames) {
       }else {
         citiesNames[i] = cityName.charAt(0).toUpperCase() + cityName.slice(1)
       }
-
     }
 
     // Remove duplicates from the array using Set  

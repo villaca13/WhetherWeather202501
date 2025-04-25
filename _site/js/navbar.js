@@ -15,6 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
       $target.classList.toggle('is-selected');
   
     });
-  });
-  
+  });  
 });

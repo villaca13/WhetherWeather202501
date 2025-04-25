@@ -9,79 +9,70 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <title>Whether Weather</title>    
 
+    <!-- Dayjs Date -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <!-- Navbar -->
+    <script src="/js/navbar.js"></script>
     <!-- Weather Project -->
-    <script src="/js/weatherProject.js"></script>
-    
+    <script src="/js/weatherProject.js"></script> 
     <!-- Components -->
     <script src="/js/components/weather-item.js"></script>
     <!-- Weather Data -->
     <script src="/js/weather_data.js"></script>
-    
-    <script src="/js/generalFunctions.js"></script>
-
-    <script src="/js/navbar.js"></script>
-    <!-- Dayjs Date -->
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    
+    <!-- General constants and functions -->
+    <script src="/js/generalFunctions.js"></script>  
      
     <script>
-    const weatherData = weatherProject.dataStore.list()
-    const dataKeyNames = Object.keys(weatherData)
-    const cities = getListOfCities(dataKeyNames)
-    const preferences = ["Show_Map", "Show_12_hours_forecast", "Show_Rain", "Dark_Theme", "friday", "saturday", "sunday"]
-
-    // creating local storage just in case it is the first access to the page
-    //Cities checkboxes in the settings page
-    cities.forEach((city) => {
-      if(localStorage.getItem(city) === null) {
-        localStorage.setItem(city, true) 
-      }     
-    })
-    //Preferences checkboxes in the settings page
-    preferences.forEach((item) => {
-      if(localStorage.getItem(item) === null) {
-        localStorage.setItem(item, true) 
-      }     
-    })
-    // Current city in the cityFocus page
-    if(localStorage.getItem("currentCity") === null) {
-			localStorage.setItem("currentCity", cities[0])
-		}
-    // Current day in the cityFocus page
-    if(localStorage.getItem("currentDay") === null) {
-			localStorage.setItem("currentDay", 0)
-		}
-
-    // Setting theme
-    setDarkTheme(localStorage.getItem("Dark_Theme") === "true" ? true : false)
+      //###############################################
+      // variable are declared in generalFunctions.js
+      //###############################################
 
 
-    
+      // creating local storage just in case it is the first access to the page
+      //Cities checkboxes in the settings page
+      cities.forEach((city) => {
+        if(localStorage.getItem(city) === null) {
+          localStorage.setItem(city, true) 
+        }     
+      })
+      //Preferences checkboxes in the settings page
+      preferences.forEach((item) => {
+        if(localStorage.getItem(item) === null) {
+          localStorage.setItem(item, true) 
+        }     
+      })
+      // Current city in the cityFocus page
+      if(localStorage.getItem(currentCity) === null) {
+        localStorage.setItem(currentCity, cities[0])
+      }
+      // Current day in the cityFocus page
+      if(localStorage.getItem(currentDay) === null) {
+        localStorage.setItem(currentDay, 0)
+      }
 
-    //console.log(cities)   
-     
-    document.addEventListener('DOMContentLoaded', () => {
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      // Setting theme
+      setDarkTheme(localStorage.getItem(darkTheme) === "true" ? true : false)   
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
+        // Add a click event on each of them
+        $navbarBurgers.forEach( el => {
+          el.addEventListener('click', () => {
 
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
 
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
 
+          });
         });
       });
-  });
-  </script>
-
-
+    </script>
   </head>
 
   <body class="container" > 

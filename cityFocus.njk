@@ -1,117 +1,111 @@
 ---
 layout: mainLayout.njk
 ---
-
-
 <script>
-
-
 		document.addEventListener('DOMContentLoaded', () =>{ 
 	    
-		const urlParams = new URLSearchParams(window.location.search); 
-	
-		//* This is used to set the current city in local storage.
-		if(urlParams.get('city') !== null) {
-			localStorage.setItem("currentCity", urlParams.get('city'))
-			//reset the current day to 0
-			localStorage.setItem("currentDay", 0)
-		}
-		
-		//* This is used to set the current city in local storage.
-		if(urlParams.get('day') !== null) {
-			localStorage.setItem("currentDay", urlParams.get('day'))
-		}
-
-		const cityDaily = weatherData[localStorage.getItem("currentCity").toLowerCase() + "_daily"]
-	    const cityHourly = weatherData[localStorage.getItem("currentCity").toLowerCase() + "_hourly"]
-
-
-		console.log(cityDaily)
-    
-	
-		document.getElementById('page-heading').textContent= localStorage.getItem("currentCity").replace(/_/g, " "); 
-		
-		// getting current date and time
-		const now = dayjs();
-		console.log(now)
-
-		const currentHour = now.hour()
-		console.log(currentHour)
-
-
-		//table of the hourly weather
-		if(localStorage.getItem("Show_12_hours_forecast") === "true" ? true : false){
-			const rightNow = document.querySelector("#rightNow")
-			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour(), 12);
-		}else{
-			const rightNow = document.querySelector("#rightNow")
-			rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, currentHour, 6);
-		}
-
-		// Map of the current city
-		if(localStorage.getItem("Show_Map") === "true" ? true : false) {
-			const mapPlace = document.querySelector("#headerMain")
-			mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
-
-			const map = document.querySelector("#map")
-			map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem("currentCity"))
-		}
-
-		const sevenDays = document.querySelector("#sevenDays")
-
-		// Populate Checkboxes with cities at preferences page
-		for(let i = 0; i < 7; i++) {
-			if(i == 0) {
-				sevenDays.innerHTML =
-					sevenDays.innerHTML + weatherProject.components.createWeatherItemDaily("Today", cityDaily , i )
-			}else{
-				sevenDays.innerHTML =
-					sevenDays.innerHTML + weatherProject.components.createWeatherItemDaily(dayjs().add(i, 'day').format('ddd'), cityDaily , i )
+			const urlParams = new URLSearchParams(window.location.search); 
+			
+			//* This is used to set the current city in local storage.
+			if(urlParams.get('city') !== null) {
+				localStorage.setItem(currentCity, urlParams.get('city'))
+				//reset the current day to 0
+				localStorage.setItem(currentDay, 0)
+			}
+				
+			//* This is used to set the current city in local storage.
+			if(urlParams.get('day') !== null) {
+				localStorage.setItem(currentDay, urlParams.get('day'))
 			}
 
-		}
+			//Seting page title
+			document.getElementById('page-heading').textContent= localStorage.getItem(currentCity).replace(/_/g, " "); 
+			
+			// getting current date and time
+			const now = dayjs();
+			const currentHour = now.hour()
 
+			//table of the hourly weather
+			if(localStorage.getItem(show12HoursForecast) === "true" ? true : false){
+				const rightNow = document.querySelector("#rightNow")
+				rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, now.hour(), 12);
+			}else{
+				const rightNow = document.querySelector("#rightNow")
+				rightNow.innerHTML = rightNow.innerHTML + weatherProject.components.createWeatherHourlyList(cityHourly, currentHour, 6);
+			}
 
+			// Map of the current city
+			if(localStorage.getItem(showMap) === "true" ? true : false) {
+				const mapPlace = document.querySelector("#headerMain")
+				mapPlace.innerHTML = mapPlace.innerHTML + weatherProject.components.createMapPlace()
 
-		// Current Day Title
-		const currentDay = document.querySelector("#currentDay")
-		if(localStorage.getItem("currentDay") == 0) {
-			currentDay.innerHTML = "Today"
-		
-		}else{
-			currentDay.innerHTML = dayjs().add(localStorage.getItem("currentDay"), 'day').format('dddd')
-		}
+				const map = document.querySelector("#map")
+				map.innerHTML = map.innerHTML + weatherProject.components.getMap(localStorage.getItem(currentCity))
+			}
 
+			// Creates 7 days forecast items
+			const sevenDays = document.querySelector("#sevenDays")
+			for(let i = 0; i < 7; i++) {
+				if(i == 0) {
+					sevenDays.innerHTML =
+						sevenDays.innerHTML + weatherProject.components.createWeatherItemDaily("Today", cityDaily , i )
+				}else{
+					sevenDays.innerHTML =
+						sevenDays.innerHTML + weatherProject.components.createWeatherItemDaily(dayjs().add(i, 'day').format('ddd'), cityDaily , i )
+				}
+			}
 
+			// Current Day Title
+			const currentDayTitle = document.querySelector("#"+currentDay)
+			if(localStorage.getItem(currentDay) == 0) {
+				currentDayTitle.innerHTML = "Today"
+			
+			}else{
+				currentDayTitle.innerHTML = dayjs().add(localStorage.getItem(currentDay), 'day').format('dddd')
+			}
 
-		// Min and Max Temp
-		const minTemp = document.querySelector("#minTemp")
-		minTemp.innerHTML = cityDaily.daily.temperature_2m_min[localStorage.getItem("currentDay")] + cityDaily.daily_units.temperature_2m_min
-		const maxTemp = document.querySelector("#maxTemp")
-		maxTemp.innerHTML = cityDaily.daily.temperature_2m_max[localStorage.getItem("currentDay")] + cityDaily.daily_units.temperature_2m_max
+			// Weather Condition
+			const weatherCondition = document.querySelector("#weatherCondition")
+			weatherCondition.src = "/images/" + cityDaily.daily.weather_code[localStorage.getItem(currentDay)] + ".png"
 
-		// Max Wind
-		const maxWind = document.querySelector("#maxWind")
-		maxWind.innerHTML = cityDaily.daily.wind_speed_10m_max[localStorage.getItem("currentDay")] + cityDaily.daily_units.wind_speed_10m_max
+			// Min Temp
+			const minTempPlace = document.querySelector("#dayDetails")
+			minTempPlace.innerHTML = minTempPlace.innerHTML + weatherProject.components.createDayDetails("minTemp","Min Temp")
+			const minTemp = document.querySelector("#minTemp")
+			minTemp.innerHTML = cityDaily.daily.temperature_2m_min[localStorage.getItem(currentDay)] + cityDaily.daily_units.temperature_2m_min
+			
+			// Max Temp
+			const maxTempPlace = document.querySelector("#dayDetails")
+			maxTempPlace.innerHTML = maxTempPlace.innerHTML + weatherProject.components.createDayDetails("maxTemp","Max Temp")
+			const maxTemp = document.querySelector("#maxTemp")
+			maxTemp.innerHTML = cityDaily.daily.temperature_2m_max[localStorage.getItem(currentDay)] + cityDaily.daily_units.temperature_2m_max
 
-		// Weather Condition
-		const weatherCondition = document.querySelector("#weatherCondition")
-		weatherCondition.src = "/images/" + cityDaily.daily.weather_code[localStorage.getItem("currentDay")] + ".png"
+			// Max Wind
+			const maxWindPlace = document.querySelector("#dayDetails")
+			maxWindPlace.innerHTML = maxWindPlace.innerHTML + weatherProject.components.createDayDetails("maxWind","Max Wind")
+			
+			const maxWind = document.querySelector("#maxWind")
+			maxWind.innerHTML = cityDaily.daily.wind_speed_10m_max[localStorage.getItem(currentDay)] + cityDaily.daily_units.wind_speed_10m_max
 
-		// Rain precipitation %
-		if(localStorage.getItem("Show_Rain") === "true" ? true : false) {
-			const rainPlace = document.querySelector("#dayDetails")
-			rainPlace.innerHTML = rainPlace.innerHTML + weatherProject.components.createDayDetails("Show_Rain"," Rain (%)")
+			// Rain precipitation %
+			if(localStorage.getItem(showRain) === "true" ? true : false) {
+				const rainPlace = document.querySelector("#dayDetails")
+				rainPlace.innerHTML = rainPlace.innerHTML + weatherProject.components.createDayDetails(showRain," Rain (%)")
 
-			const rain = document.querySelector("#Show_Rain")
-			rain.innerHTML = cityDaily.daily.precipitation_probability_max[localStorage.getItem("currentDay")] + cityDaily.daily_units.precipitation_probability_max
-		}
+				const rain = document.querySelector("#"+showRain)
+				rain.innerHTML = cityDaily.daily.precipitation_probability_max[localStorage.getItem(currentDay)] + cityDaily.daily_units.precipitation_probability_max
+			}
 
-		
+			// Feels Like Temp
+			if(localStorage.getItem( showFeelsLikeTemp) === "true" ? true : false) {
+				const feelsLikePlace = document.querySelector("#dayDetails")
+				feelsLikePlace.innerHTML = feelsLikePlace.innerHTML + weatherProject.components.createDayDetails(showFeelsLikeTemp,"Feels Like")
+
+				const feelsLike = document.querySelector("#"+showFeelsLikeTemp)
+				feelsLike.innerHTML =  "Max " + cityDaily.daily.apparent_temperature_max[localStorage.getItem(currentDay)] + cityDaily.daily_units.apparent_temperature_max
+			}		
 		});
-
 </script>
-
 
 <main id="index" class="box has-background-info ">
 	<div class=" is-12 has-text-centered has-text-white">
@@ -127,11 +121,8 @@ layout: mainLayout.njk
 
 				<div id="rightNow" class="card-content">				
 				</div>
-
 			</section>
 		</div>
-
-
 	</header>
 
 	<div id="sevenDays" class="columns is-multiline box has-background-info is-centered">
@@ -139,7 +130,6 @@ layout: mainLayout.njk
 			<p class="title is-2">7 Days forecast</p>
 		</div>
 	</div>
-
 
 	<footer id="dayDetails" class="columns is-multiline has-text-centered">
 		<div class="column is-12 has-text-centered has-text-white">
@@ -149,54 +139,16 @@ layout: mainLayout.njk
 		<div class="column"> 
 			<section id="WeatherCondition" class="card" >
 				<header class="card-content">
-					<h2 class="title is-centered">Weather Codition</h2>
+					<h2 class="title is-4">Weather Codition</h2>
 				</header>
 
 				<div class="card-image ">
-					<figure class="image is-48x48 is-inline-block">	
+					<figure class="image is-64x64 is-inline-block">	
 						<img id="weatherCondition"  src="#" alt="Image">
 					</figure>
 				</div>
 			</section>
 		</div>
 
-		<div class="column">
-			<section  class="card" >
-
-				<header class="card-content">
-					<h2 class="title">Min Temp</h2>
-				</header>
-
-				<div class="card-content ">
-					<p id="minTemp" class="title">6 C</p>
-				</div>
-				
-			</section>
-		</div>
-
-		<div class="column">
-			<section  class="card" >
-				<header class="card-content">
-					<h2 class="title">Max Temp</h2>
-				</header>
-
-				<div class="card-content ">
-					<p id="maxTemp" class="title">12 C</p>
-				</div>
-			</section>
-		</div>
-
-		<div class="column">
-			<section class="card" >
-				<header class="card-content">
-					<h2 class="title">Max Wind</h2>
-				</header>
-
-				<div class="card-content ">
-					<p  id="maxWind" class="title">15 m/s </p>
-				</div>
-			</section>		
-		</div>		
 	</footer>
 </main>
-
