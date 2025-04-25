@@ -13,24 +13,37 @@ Deployment: Netlify.
 ---
 
 ## Features
-- 7 html pages :  Home, About, instructions, settings, pricing and contact. 
-- Responsive design for desktop.
-- website to present and show intructions on how to play the Bouncing ball game and to use its features. 
-- Flexbox for navigation 
--NEWWWW
-- 7 days forecast 
-- start at dashboar , click on the city you want and see city focus, 
-- on city focus, click on day you want and get more details about the date you want 
-- preferences are save and loaded when the wwbsite is loaded. 
-last seen city is loaded as well. 
-Nav bar and Nav burger is implemented
-layouts, partials and templates are implemented
+- 3 html pages :  Dashboard, City focus and Settings.
+- Navigation bar/burger (Bulma framework)
+
+- WEBSITE pages and functions below: 
+---Dashboard
+----- 9 Cities available and click on the city card to go to city focus and see details about the weather
+---City Focus 
+----- Hourly forecast for the next 6 or 12 hours from the current hour of the current day
+----- City location map embeded 
+----- 7 Days forecast - Click on the day card to get more details about that specif day 
+----- Day weather details - it changes accordingly the day card you have clicked on. 
+--- Settings
+----- Cities checkboxes: enable/disable a city which is shown on the dashboard page 
+----- Preferences
+------- Show Map (Default: enabled): hide/show Embeded map on city focus
+------- Show 12 hours forecast ( Default: enabled ): if enabled show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
+------- Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
+------- Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
+------- Dark Theme (Default: enabled) : Select dark theme for the website, otherwise it is a light theme. 
+
+- WEBSITE hidden functions below: 
+--- CITIES selected on the settings page are stored in the local storage and loaded on the next access.
+--- PREFERENCES selected on the settings page are stored in the local storage and loaded on the next access.
+--- LAST SEEN CITY is saved in the local storage and loaded on the next access.
+--- DEFAULT CITY is the first one in the list. 
 
 ---
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, eleventy, Node 
+- **Frontend**: HTML, Javascript, BULMA (CSS Framework), eleventy, Node, Nunjucks 
 - **Backend**: Netlify for hosting
 - **Database**: Not Implemented
 - **API**: Not Implemented
@@ -58,32 +71,24 @@ BouncingBallWebsite/
 │   ├── header.njk
 │   └── mainLayout.njk
 ├── _site/
-├── css/
-│   ├── aboutMe.css
-│   ├── contact.css
-│   ├── index.css
-│   ├── instructions.css
-│   ├── mainLayout.css
-│   ├── navbar.css
-│   ├── pricing.css
-│   ├── ranking.css
-│   └── settings.css
 ├── images/
+├── js/
+│   ├── components/
+|   |           └── weather-item.js
+│   ├── data-definition.pdf
+│   ├── generalFunctions.js
+│   ├── navbar.js
+│   ├── weather_data.js
+│   └── weatherProject.js
 ├── node_modules/
-├── videos/
 ├── .elenventy.js
-├── aboutMe.njk
-├── contact.njk
+├── cityFocus.njk
 ├── index.njk
-├── instructions.njk
 ├── package-lock.json
 ├── package.json
-├── pricing.njk
-├── ranking.njk
+├── preferences.njk
 ├── README.md
-├── reflection.pdf
-├── settings.njk
-└── template.docx
+└── reflection.pdf
 ```
 
 ---
