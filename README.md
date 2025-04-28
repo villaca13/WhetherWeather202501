@@ -4,12 +4,12 @@
 ## Overview
 Developed for the higher diploma in computer science at SETU. using JavaScript, HTML, and Bulma (CSS framework).
 Website is deployed through Netlify and can be found here: [Wether Weather](whetherweathervillaca.netlify.app).
-JavaScript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
-HTML concepts: use of Divisions, Sections, IDs, Classes, naming of folders and files, and Appropriate use of semantics.
-Bulma concepts: Columns, Navbar, color palette, form items, table, box, card.  
-Nunjucks concepts: templating, layouts, partials, DRY/WET. 
-Site Generator: Eleventy. 
-Deployment: Netlify.
+- JavaScript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
+- HTML concepts: use of Divisions, Sections, IDs, Classes, naming of folders and files, and Appropriate use of semantics.
+- Bulma concepts: Columns, Navbar, color palette, form items, table, box, card.  
+- Nunjucks concepts: templating, layouts, partials, DRY/WET. 
+- Site Generator: Eleventy. 
+- Deployment: Netlify.
 
 ---
 
