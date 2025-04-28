@@ -1,12 +1,13 @@
 
-# Bouncing Ball Website
+# Wether Weather Website
 
 ## Overview
-Developed for the higher diploma in computer sciende at SETU. using only HTML and Css.
-Project based on the boucing ball created for the programming assignment where can be foung here:[Bouncing Ball](https://github.com/villaca13/BouncingBall).
+Developed for the higher diploma in computer sciende at SETU. using javascript, HTML and Bulma (css framework).
+Website is deployed through Netlify and can be found here: [Wether Weather](whetherweathervillaca.netlify.app).
+Javascript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
 Html concepts: use of Divisions, Sections , IDs, Classes, naming of folder and files, Appropriate use of semantics.
-Css concepts: Flexbox, Grid, Sizing, formatting elements, multiple stylesheets
-Nunjucks concepts: templating, layouts, partials, DRY/WET . 
+Bulma concepts: Columns, Navbar, color palette, form items, table, box, card.  
+Nunjucks concepts: templating, layouts, partials, DRY/WET. 
 Site Generator: Eleventy. 
 Deployment: Netlify.
 
@@ -15,25 +16,24 @@ Deployment: Netlify.
 ## Features
 - 3 html pages :  Dashboard, City focus and Settings.
 - Navigation bar/burger (Bulma framework)
+### WEBSITE pages and functions below:
+- **Dashboard**
+- 9 Cities available and click on the city card to go to city focus and see details about the weather
+- **City Focus** 
+- Hourly forecast for the next 6 or 12 hours from the current hour of the current day
+- City location map embeded 
+- 7 Days forecast - Click on the day card to get more details about that specif day 
+- Day weather details - it changes accordingly the day card you have clicked on. 
+- **Settings**
+- Cities checkboxes: enable/disable a city which is shown on the dashboard page 
+- Preferences
+----- Show Map (Default: enabled): hide/show Embeded map on city focus
+----- Show 12 hours forecast ( Default: enabled ): if enabled show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
+----- Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
+----- Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
+----- Dark Theme (Default: enabled) : Select dark theme for the website, otherwise it is a light theme. 
 
-- WEBSITE pages and functions below: 
----Dashboard
------ 9 Cities available and click on the city card to go to city focus and see details about the weather
----City Focus 
------ Hourly forecast for the next 6 or 12 hours from the current hour of the current day
------ City location map embeded 
------ 7 Days forecast - Click on the day card to get more details about that specif day 
------ Day weather details - it changes accordingly the day card you have clicked on. 
---- Settings
------ Cities checkboxes: enable/disable a city which is shown on the dashboard page 
------ Preferences
-------- Show Map (Default: enabled): hide/show Embeded map on city focus
-------- Show 12 hours forecast ( Default: enabled ): if enabled show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
-------- Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
-------- Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
-------- Dark Theme (Default: enabled) : Select dark theme for the website, otherwise it is a light theme. 
-
-- WEBSITE hidden functions below: 
+- **WEBSITE hidden functions below:** 
 --- CITIES selected on the settings page are stored in the local storage and loaded on the next access.
 --- PREFERENCES selected on the settings page are stored in the local storage and loaded on the next access.
 --- LAST SEEN CITY is saved in the local storage and loaded on the next access.
