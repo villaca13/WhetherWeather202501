@@ -24,9 +24,9 @@ Deployment: Netlify.
 - 7 Days forecast - Click on the day card to get more details about that specif day 
 - Day weather details - it changes accordingly the day card you have clicked on. 
 3. ***Settings***
-3. 1. Cities checkboxes: enable/disable a city which is shown on the dashboard page 
-3. 2. Preferences
-3. 2. 1. Show Map (Default: enabled): hide/show Embeded map on city focus
+    1. Cities checkboxes: enable/disable a city which is shown on the dashboard page 
+    2. Preferences
+    2. 1. Show Map (Default: enabled): hide/show Embeded map on city focus
 3. 2. 2. Show 12 hours forecast ( Default: enabled ): if enabled show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
 3. 2. 3. Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
 3. 2. 4. Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
