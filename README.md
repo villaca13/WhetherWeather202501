@@ -16,17 +16,16 @@ Deployment: Netlify.
 ## Features
 - 3 html pages :  Dashboard, City focus and Settings.
 - Navigation bar/burger (Bulma framework)
-### WEBSITE pages and functions below:
-- **Dashboard**
-- 9 Cities available and click on the city card to go to city focus and see details about the weather
-- **City Focus** 
+1. ***Dashboard***
+-  9 Cities available and click on the city card to go to city focus and see details about the weather
+2. ***City Focus***
 - Hourly forecast for the next 6 or 12 hours from the current hour of the current day
 - City location map embeded 
 - 7 Days forecast - Click on the day card to get more details about that specif day 
 - Day weather details - it changes accordingly the day card you have clicked on. 
-- **Settings**
+3. ***Settings***
 - Cities checkboxes: enable/disable a city which is shown on the dashboard page 
-- Preferences
+3. 1. Preferences
 ----- Show Map (Default: enabled): hide/show Embeded map on city focus
 ----- Show 12 hours forecast ( Default: enabled ): if enabled show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
 ----- Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
