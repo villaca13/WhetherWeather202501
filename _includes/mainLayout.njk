@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="en">
 
   <head>
     <meta charset="UTF-8">
@@ -49,6 +49,10 @@
       if(localStorage.getItem(currentDay) === null) {
         localStorage.setItem(currentDay, 0)
       }
+      
+      // get weather data for the current city
+      const cityDaily = weatherData[localStorage.getItem(currentCity).toLowerCase() + "_daily"]
+      const cityHourly = weatherData[localStorage.getItem(currentCity).toLowerCase() + "_hourly"]
 
       // Setting theme
       setDarkTheme(localStorage.getItem(darkTheme) === "true" ? true : false)   
@@ -75,7 +79,7 @@
     </script>
   </head>
 
-  <body class="container" > 
+  <body> 
     {% include "header.njk" %}
       
     {{ content | safe }}

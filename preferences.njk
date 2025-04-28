@@ -34,25 +34,37 @@ layout: mainLayout.njk
                 if (this.id === darkTheme) {
                     // Refresh the page after a delay of 0.5 seconds
                     setTimeout(function(){
-                        location.reload();
+                    location.reload();
                     }, 500); // 500 milliseconds = 0.5 seconds
+                        
                 }
             })
         })
     })
     </script>
 
-<main id="preferences" class="columns is-multiline box has-background-info is-centered">
-    <div class="column is-12 has-text-centered has-text-white">
-        <h1 class="title">User Settings</h1>
-    </div>
+<main id="preferences" class="box has-background-info">
+    
+    <!-- Title -->
+    <h1 class="title has-text-centered has-text-white">User Settings</h1>
 
-    <div id="citiesCheckboxes" class="column is-2 checkboxes is-multiline box">
-        <h2 class="subtitle has-text-centered is-4">Cities</h2>
-    </div>
+    <!-- Checkboxes -->
+    <div class="columns is-centered">
+        <!-- Cities checkboxes -->
+        <section  class="column is-one-quarter">
+            <div id="citiesCheckboxes" class="box">
+                <h2 class="subtitle has-text-centered is-4">Cities</h2>
+            </div>
+        </section>
 
-    <div id="preferencesCheckboxes" class="column is-2 is-offset-2 checkboxes is-multiline box">
-        <h2 class="subtitle has-text-centered is-4">Preferences</h2>
+        <!-- Preferences Checkboxes -->
+        <section  class="column is-one-quarter">
+            <div id="preferencesCheckboxes" class="box">
+                <h2 class="subtitle has-text-centered is-4">Preferences</h2>
+                <button class="button is-info is-focused" id="reset" onclick="resetAllPreferences()" >Reset to default options   </button>    
+            </div>
+        </section>
+
     </div>
 </main>
 

@@ -13,9 +13,6 @@ const showFeelsLikeTemp = "Show_Feels_Like_Temp"
 const darkTheme = "Dark_Theme"
 const preferences = [showMap, show12HoursForecast, showRain, showFeelsLikeTemp, darkTheme]
 
-// get weather data for the current city
-const cityDaily = weatherData[localStorage.getItem(currentCity).toLowerCase() + "_daily"]
-const cityHourly = weatherData[localStorage.getItem(currentCity).toLowerCase() + "_hourly"]
 
 // Function to get the list of cities from the keys of the weather data object
 // This function takes an object as an argument and returns an array of city names
@@ -75,4 +72,12 @@ function updateCheckbox (idCheckbox, value) {
 function setDarkTheme (darkTheme) {
   // Changing the theme of the page
   document.querySelector("html").setAttribute("data-theme", darkTheme === true ? "dark" : "light")
+}
+
+function resetAllPreferences() {
+  localStorage.clear()
+    // Refresh the page after a delay of 0.5 seconds
+    setTimeout(function(){
+      location.reload();
+    }, 500); // 500 milliseconds = 0.5 seconds
 }
