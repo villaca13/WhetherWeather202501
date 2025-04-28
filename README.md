@@ -3,7 +3,7 @@
 
 ## Overview
 Developed for the higher diploma in computer science at SETU. using JavaScript, HTML, and Bulma (CSS framework).
-Website is deployed through Netlify and can be found here: [Whether Weather](whetherweathervillaca.netlify.app).
+Website is deployed through Netlify and can be found here: [Whether Weather](https://whetherweathervillaca.netlify.app/).
 - JavaScript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
 - HTML concepts: use of Divisions, Sections, IDs, Classes, naming of folders and files, and Appropriate use of semantics.
 - Bulma concepts: Columns, Navbar, color palette, form items, table, box, card.  
