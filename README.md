@@ -2,10 +2,10 @@
 # Wether Weather Website
 
 ## Overview
-Developed for the higher diploma in computer sciende at SETU. using javascript, HTML and Bulma (css framework).
+Developed for the higher diploma in computer science at SETU. using JavaScript, HTML, and Bulma (CSS framework).
 Website is deployed through Netlify and can be found here: [Wether Weather](whetherweathervillaca.netlify.app).
-Javascript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
-Html concepts: use of Divisions, Sections , IDs, Classes, naming of folder and files, Appropriate use of semantics.
+JavaScript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
+HTML concepts: use of Divisions, Sections, IDs, Classes, naming of folders and files, and Appropriate use of semantics.
 Bulma concepts: Columns, Navbar, color palette, form items, table, box, card.  
 Nunjucks concepts: templating, layouts, partials, DRY/WET. 
 Site Generator: Eleventy. 
@@ -14,23 +14,23 @@ Deployment: Netlify.
 ---
 
 ## Features
-- 3 HTML pages:  Dashboard, City focus and Settings.
+- 3 HTML pages:  Dashboard, City focus, and Settings.
 - Navigation bar/burger (Bulma framework)
 1. ***Dashboard***
-    -  9 Cities available and click on the city card to go to city focus and see details about the weather
+    -  9 Cities available, and click on the city card to go to the city focus and see details about the weather
 2. ***City Focus***
     - Hourly forecast for the next 6 or 12 hours from the current hour of the current day
     - City location map embedded 
     - 7 Days forecast - Click on the day card to get more details about that specific day 
     - Day weather details - It changes according to the day card you click on. 
 3. ***Settings***
-    1. Cities checkboxes: enable/disable a city which is shown on the dashboard page 
-    2. Preferences
+    - City checkboxes: enable/disable a city that is shown on the dashboard page 
+    - Preferences
         1. Show Map (Default: enabled): hide/show Embedded map on city focus
-        2. Show 12 hours forecast ( Default: enabled ): if enabled, show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
-        3. Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
-       4. Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
-       5. Dark Theme (Default: enabled) : Select dark theme for the website, otherwise it is a light theme. 
+        2. Show 12-hour forecast ( Default: enabled): if enabled, show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
+        3. Show Rain (Default: enabled): Show the rain precipitation probability on both the hourly forecast and the daily weather details 
+        4. Show Feels Like (Default: enabled): Show the max feels like temperature on both hourly forecast and day weather details 
+        5. Dark Theme (Default: enabled): Select dark theme for the website; otherwise, it is light. 
 
 - **WEBSITE hidden functions below:** 
 --- CITIES selected on the settings page are stored in the local storage and loaded on the next access.
@@ -42,7 +42,7 @@ Deployment: Netlify.
 
 ## Technologies Used
 
-- **Frontend**: HTML, Javascript, BULMA (CSS Framework), eleventy, Node, Nunjucks 
+- **Frontend**: HTML, JavaScript, BULMA (CSS Framework), eleventy, Node, Nunjucks 
 - **Backend**: Netlify for hosting
 - **Database**: Not Implemented
 - **API**: Not Implemented
@@ -51,13 +51,13 @@ Deployment: Netlify.
 
 ## Usage
 
-1. Open command prompt and select the folder where you saved the files. Example: C:\Users\(USER)\BouncingBallWebsite
-2. When inside the folder use the eleventy command below ( [Eleventy](https://www.11ty.dev/docs/) needs to be installed)
+1. Open the command prompt and select the folder where you saved the files. Example: C:\Users\(USER)\BouncingBallWebsite
+2. When inside the folder, use the eleventy command below ( [Eleventy](https://www.11ty.dev/docs/) needs to be installed)
 ```
 eleventy --serve
 ```
 3. Open your browser and visit `http://localhost:8080`.
-4. Home webpage will open and then use the navigation bar to go through the pages. 
+4. The home webpage will open and then use the navigation bar to go through the pages. 
 
 ---
 
