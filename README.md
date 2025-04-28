@@ -14,23 +14,23 @@ Deployment: Netlify.
 ---
 
 ## Features
-- 3 html pages :  Dashboard, City focus and Settings.
+- 3 HTML pages:  Dashboard, City focus and Settings.
 - Navigation bar/burger (Bulma framework)
 1. ***Dashboard***
--  9 Cities available and click on the city card to go to city focus and see details about the weather
+    -  9 Cities available and click on the city card to go to city focus and see details about the weather
 2. ***City Focus***
-- Hourly forecast for the next 6 or 12 hours from the current hour of the current day
-- City location map embeded 
-- 7 Days forecast - Click on the day card to get more details about that specif day 
-- Day weather details - it changes accordingly the day card you have clicked on. 
+    - Hourly forecast for the next 6 or 12 hours from the current hour of the current day
+    - City location map embedded 
+    - 7 Days forecast - Click on the day card to get more details about that specific day 
+    - Day weather details - It changes according to the day card you click on. 
 3. ***Settings***
     1. Cities checkboxes: enable/disable a city which is shown on the dashboard page 
     2. Preferences
-    2. 1. Show Map (Default: enabled): hide/show Embeded map on city focus
-3. 2. 2. Show 12 hours forecast ( Default: enabled ): if enabled show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
-3. 2. 3. Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
-3. 2. 4. Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
-3. 2. 5. Dark Theme (Default: enabled) : Select dark theme for the website, otherwise it is a light theme. 
+        1. Show Map (Default: enabled): hide/show Embedded map on city focus
+        2. Show 12 hours forecast ( Default: enabled ): if enabled, show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
+        3. Show Rain (Default: enabled) : Show the rain preciptation probability on both hourly forecast and day weather details 
+       4. Show Feels Like (Default: enabled) : Show the max feels like temperature on both hourly forecast and day weather details 
+       5. Dark Theme (Default: enabled) : Select dark theme for the website, otherwise it is a light theme. 
 
 - **WEBSITE hidden functions below:** 
 --- CITIES selected on the settings page are stored in the local storage and loaded on the next access.
