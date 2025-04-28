@@ -1,9 +1,9 @@
 
-# Wether Weather Website
+# Whether Weather Website
 
 ## Overview
 Developed for the higher diploma in computer science at SETU. using JavaScript, HTML, and Bulma (CSS framework).
-Website is deployed through Netlify and can be found here: [Wether Weather](whetherweathervillaca.netlify.app).
+Website is deployed through Netlify and can be found here: [Whether Weather](whetherweathervillaca.netlify.app).
 - JavaScript: Model–view–controller (MVC), Arrays, methods, events, Object-oriented programming (OOP), URL Parameters, APIs, Data handling.
 - HTML concepts: use of Divisions, Sections, IDs, Classes, naming of folders and files, and Appropriate use of semantics.
 - Bulma concepts: Columns, Navbar, color palette, form items, table, box, card.  
@@ -26,17 +26,18 @@ Website is deployed through Netlify and can be found here: [Wether Weather](whet
 3. ***Settings***
     - City checkboxes: enable/disable a city that is shown on the dashboard page 
     - Preferences
-        1. Show Map (Default: enabled): hide/show Embedded map on city focus
-        2. Show 12-hour forecast ( Default: enabled): if enabled, show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
-        3. Show Rain (Default: enabled): Show the rain precipitation probability on both the hourly forecast and the daily weather details 
-        4. Show Feels Like (Default: enabled): Show the max feels like temperature on both hourly forecast and day weather details 
-        5. Dark Theme (Default: enabled): Select dark theme for the website; otherwise, it is light. 
+        1. Button - Reset all preferences: - it will clear up the local storage. 
+        2. Show Map (Default: enabled): hide/show Embedded map on city focus
+        3. Show 12-hour forecast ( Default: enabled): if enabled, show hourly forecast for the next 12 hours, otherwise it shows only 6 hours
+        4. Show Rain (Default: enabled): Show the rain precipitation probability on both the hourly forecast and the daily weather details 
+        5. Show Feels Like (Default: enabled): Show the max feels like temperature on both hourly forecast and day weather details 
+        6. Dark Theme (Default: enabled): Select dark theme for the website; otherwise, it is light. 
 
-- **WEBSITE hidden functions below:** 
---- CITIES selected on the settings page are stored in the local storage and loaded on the next access.
---- PREFERENCES selected on the settings page are stored in the local storage and loaded on the next access.
---- LAST SEEN CITY is saved in the local storage and loaded on the next access.
---- DEFAULT CITY is the first one in the list. 
+4. ***WEBSITE hidden functions below:***
+    - CITIES selected on the settings page are stored in the local storage and loaded on the next access.
+    - PREFERENCES selected on the settings page are stored in the local storage and loaded on the next access.
+    - LAST SEEN CITY is saved in the local storage and loaded on the next access.
+    - DEFAULT CITY is the first one in the list. 
 
 ---
 
@@ -44,14 +45,14 @@ Website is deployed through Netlify and can be found here: [Wether Weather](whet
 
 - **Frontend**: HTML, JavaScript, BULMA (CSS Framework), eleventy, Node, Nunjucks 
 - **Backend**: Netlify for hosting
-- **Database**: Not Implemented
+- **Database**: Localy stored, JSON. 
 - **API**: Not Implemented
 
 ---
 
 ## Usage
 
-1. Open the command prompt and select the folder where you saved the files. Example: C:\Users\(USER)\BouncingBallWebsite
+1. Open the command prompt and select the folder where you saved the files. Example: C:\Users\(USER)\WhetherWeather202501
 2. When inside the folder, use the eleventy command below ( [Eleventy](https://www.11ty.dev/docs/) needs to be installed)
 ```
 eleventy --serve
@@ -64,7 +65,7 @@ eleventy --serve
 ## Project Structure
 
 ```
-BouncingBallWebsite/
+WhetherWeather202501/
 ├── _includes/
 │   ├── footer.njk
 │   ├── header.njk
@@ -99,39 +100,32 @@ BouncingBallWebsite/
 
 ## Acknowledgments
 
-- Navigation bar inspiration and code from [SkillThrive](https://www.youtube.com/watch?v=PwWHL3RyQgk&t=621s).
-- "Contact" page inspiration and code from [CarPoolVenom](https://www.youtube.com/watch?v=nwEB3Wxh5N0).
-- "About Me" page inspiration from [Nicepage](https://nicepage.com/ht/1362604/creative-designer-profile-html-template).
-- "Pricing" page inspiration and code from [dcode](https://www.youtube.com/watch?v=jfh0ZJFhj2w).
-- Nunjucks Conditional Statement Examples for Eleventy from [design2seo](https://design2seo.com/blog/web-development/11ty/nunjucks-if-statement-for-eleventy/).
+- [w3schools](https://www.w3schools.com) to search uses and examples for HTML tags and JavaScript.
+- [Bulma CSS Framework](https://bulma.io/) styles for navigation bar, checkboxes, table, boxes, cards and etc.
+- [andrewborstein.com](https://andrewborstein.com/blog/moving-my-blog-to-eleventy-part-2/) used to solve this continuous deployment error between Github and Netlify when using 11ty [eleventy not found"](https://answers.netlify.com/t/eleventy-non-zero-exit-code-127-error/66900) 
+- [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript) used to search uses exemples for Java Script.
+- [freecodecamp](https://www.freecodecamp.org/news/javascript-refresh-page-how-to-reload-a-page-in-js/) - code for reloading a page in Java Script.
+- Weather icons from [freepik](https://www.freepik.com/).
 - Readme template from [comp1800](https://github.com/comp1800/web_template).
-- Creating table in HTML from [w3schools](https://www.w3schools.com/html/html_tables.asp).
-- Profile avatar from [freepik](https://www.freepik.com/).
-- Home icon from [Google icons](https://fonts.google.com/icons).
 
--------- New
-"eleventy not found" error https://answers.netlify.com/t/eleventy-non-zero-exit-code-127-error/66900  answer  https://andrewborstein.com/blog/moving-my-blog-to-eleventy-part-2/
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach 
-
-https://www.freecodecamp.org/news/javascript-refresh-page-how-to-reload-a-page-in-js/ 
 ---
 
 ## Limitations and Future Work
 ### Limitations
 
 - Currently, the website is only designed for desktops. 
-- Database, emails are not implemented yet. 
-- The website design and layout can be further enhanced for improving user experience and usability.
-- Currently, The website is based only on HTML, CSS. No java were allowed. 
+- Database is on client side, localy stored and accessed. 
+- Temperature unit is only celcius. 
+- only 7 days forecast.
+- only 9 cities available. 
+
 
 ### Future Work
 
-- Implement the email service to allow people to contact us. 
-- Improve the website design selecting a balanced colour palette and applying new website aesthetics trends.
-- Create a Web app to allow people to play on the webpage. 
-- Create a database to store data and create real rankings and statistics. 
-- Improve the layout to make it responsive and nice for all types of devices/screen sizes. 
+- Implement an API to get live data and then add more cities to the website. 
+- Implement fahrenheit (F) unit for temperature. 
+- Improve the website layout and make it more responsive for different screen sizes. 
+- Increase the forecast to 15 days ahead. 
 
 ---
 
