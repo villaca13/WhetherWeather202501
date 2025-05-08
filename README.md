@@ -106,7 +106,7 @@ WhetherWeather202501/
 - [andrewborstein.com](https://andrewborstein.com/blog/moving-my-blog-to-eleventy-part-2/) used to solve this continuous deployment error between Github and Netlify when using 11ty [eleventy not found"](https://answers.netlify.com/t/eleventy-non-zero-exit-code-127-error/66900) 
 - [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript) used to search uses exemples for Java Script.
 - [freecodecamp](https://www.freecodecamp.org/news/javascript-refresh-page-how-to-reload-a-page-in-js/) - code for reloading a page in Java Script.
-- Weather icons from [freepik](https://www.freepik.com/).
+- Weather icons from [flaticon](https://www.flaticon.com/).
 - Readme template from [comp1800](https://github.com/comp1800/web_template).
 - Instructions to export git commit history [adamthebig](https://gist.github.com/adamthebig/9d2cf1281797c3f9f958#file-git-commit-log-sh)
 
