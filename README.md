@@ -83,6 +83,7 @@ WhetherWeather202501/
 ├── node_modules/
 ├── .elenventy.js
 ├── cityFocus.njk
+├── GithubCommitHistory.csv
 ├── index.njk
 ├── package-lock.json
 ├── package.json
@@ -107,6 +108,7 @@ WhetherWeather202501/
 - [freecodecamp](https://www.freecodecamp.org/news/javascript-refresh-page-how-to-reload-a-page-in-js/) - code for reloading a page in Java Script.
 - Weather icons from [freepik](https://www.freepik.com/).
 - Readme template from [comp1800](https://github.com/comp1800/web_template).
+- Instructions to export git commit history [adamthebig](https://gist.github.com/adamthebig/9d2cf1281797c3f9f958#file-git-commit-log-sh)
 
 ---
 

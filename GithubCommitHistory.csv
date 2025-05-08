@@ -1,0 +1,137 @@
+'1264231,Tiago Villaca,Mon, 28 Apr 2025 15:12:49 +0100,update readme,'
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+'2d0adb6,Tiago Villaca,Mon, 28 Apr 2025 15:09:56 +0100,updated readme,'
+ 2 files changed, 67 insertions(+), 72 deletions(-)
+
+'65c1bda,Tiago Villaca,Mon, 28 Apr 2025 14:21:09 +0100,Update index.html,'
+ 1 file changed, 32 insertions(+), 65 deletions(-)
+
+'88a2193,Tiago Villaca,Mon, 28 Apr 2025 14:20:08 +0100,Update README.md,'
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+'75fa147,Tiago Villaca,Mon, 28 Apr 2025 14:19:35 +0100,Update README.md,'
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+
+'631de0e,Tiago Villaca,Mon, 28 Apr 2025 14:15:30 +0100,Update README.md,'
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+
+'d150ae3,Tiago Villaca,Mon, 28 Apr 2025 14:12:42 +0100,readme changes,'
+ 2 files changed, 4 insertions(+), 13 deletions(-)
+
+'a92c895,Tiago Villaca,Mon, 28 Apr 2025 14:11:21 +0100,readme changes,'
+ 2 files changed, 57 insertions(+), 17 deletions(-)
+
+'e5272c6,Tiago Villaca,Mon, 28 Apr 2025 14:09:03 +0100,readme changes,'
+ 2 files changed, 34 insertions(+), 40 deletions(-)
+
+'7ecb1c1,Tiago Villaca,Mon, 28 Apr 2025 14:03:31 +0100,readme changes,'
+ 2 files changed, 65 insertions(+), 48 deletions(-)
+
+'56ec05f,Tiago Villaca,Mon, 28 Apr 2025 13:38:42 +0100,body change,'
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+'acb1634,Tiago Villaca,Mon, 28 Apr 2025 13:31:16 +0100,Reset button implementation and layout adjustments,'
+ 8 files changed, 97 insertions(+), 43 deletions(-)
+
+'35feaa7,Tiago Villaca,Fri, 25 Apr 2025 15:53:06 +0100,text alignment issue at the table in cityFocus,'
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+'023f102,Tiago Villaca,Fri, 25 Apr 2025 15:24:36 +0100,ReadMe and cleanup,'
+ 3 files changed, 80 insertions(+), 102 deletions(-)
+
+'40a37f4,Tiago Villaca,Fri, 25 Apr 2025 14:10:18 +0100,Feels Like implementation and some cleaning up,'
+ 469 files changed, 13444 insertions(+), 684 deletions(-)
+
+'5f03aed,Tiago Villaca,Thu, 24 Apr 2025 16:52:28 +0100,readme update,'
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+'e1c424f,Tiago Villaca,Thu, 24 Apr 2025 16:49:19 +0100,Theme Change implemented,'
+ 7 files changed, 62 insertions(+), 26 deletions(-)
+
+'a7e5e57,Tiago Villaca,Thu, 24 Apr 2025 15:54:07 +0100,Rain precipitation Implemented,'
+ 7 files changed, 148 insertions(+), 66 deletions(-)
+
+'4a6c1d4,Tiago Villaca,Thu, 24 Apr 2025 12:45:39 +0100,the <a> tags to wrap the entire weather item.,'
+ 2 files changed, 62 insertions(+), 58 deletions(-)
+
+'512451d,Tiago Villaca,Wed, 23 Apr 2025 16:26:01 +0100,Forecast for 12 hours implemented,'
+ 7 files changed, 28 insertions(+), 16 deletions(-)
+
+'e5f440a,Tiago Villaca,Wed, 23 Apr 2025 15:50:56 +0100,Current Day implamentation,'
+ 9 files changed, 143 insertions(+), 53 deletions(-)
+
+'2fa369b,Tiago Villaca,Wed, 23 Apr 2025 14:44:39 +0100,Map preference implemented,'
+ 10 files changed, 160 insertions(+), 176 deletions(-)
+
+'5b3485f,Tiago Villaca,Wed, 23 Apr 2025 12:31:41 +0100,SOLVED - Maps were not loading,'
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+'f1da6bf,Tiago Villaca,Wed, 23 Apr 2025 12:20:57 +0100,SOLVED - First access to Web page issue,'
+ 8 files changed, 61 insertions(+), 43 deletions(-)
+
+'6573753,Tiago Villaca,Tue, 22 Apr 2025 23:09:49 +0100,update readme,'
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+'f5d64ed,Tiago Villaca,Tue, 22 Apr 2025 16:41:54 +0100,solving issues about navburger,'
+ 5 files changed, 104 insertions(+), 8 deletions(-)
+
+'7111b30,Tiago Villaca,Tue, 22 Apr 2025 16:26:26 +0100,changes to the navbar,'
+ 4 files changed, 28 insertions(+)
+
+'a4663f3,Tiago Villaca,Tue, 22 Apr 2025 16:03:16 +0100,adjustment to 24hours format at Right Now Item,'
+ 4 files changed, 44 insertions(+), 24 deletions(-)
+
+'4536d6c,Tiago Villaca,Tue, 22 Apr 2025 15:55:57 +0100,changes 22/04/2025 16:00:00,'
+ 10 files changed, 464 insertions(+), 102 deletions(-)
+
+'bc3d636,Tiago Villaca,Mon, 21 Apr 2025 23:28:35 +0100,changes 21/04/2024 23:29:00,'
+ 97 files changed, 84 insertions(+), 78 deletions(-)
+
+'e8c95f0,Tiago Villaca,Sat, 19 Apr 2025 15:13:06 +0100,changes 19-04-2025 15:12:00,'
+ 9 files changed, 138 insertions(+), 15543 deletions(-)
+
+'aa428b6,Tiago Villaca,Sat, 19 Apr 2025 13:48:16 +0100,passing url parameters,'
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+'9dc5f2d,Tiago Villaca,Sat, 19 Apr 2025 13:37:08 +0100,swapping index and dashboard,'
+ 7 files changed, 275 insertions(+), 164 deletions(-)
+
+'7b7bfc1,Tiago Villaca,Fri, 18 Apr 2025 15:53:21 +0100,changes 18/04/2025 15:53:00,'
+ 11 files changed, 311 insertions(+), 185 deletions(-)
+
+'8c203c8,Tiago Villaca,Thu, 17 Apr 2025 15:50:37 +0100,changes 17/04/2025 15:50:00,'
+ 41 files changed, 61339 insertions(+), 76472 deletions(-)
+
+'f4d34a6,Tiago Villaca,Wed, 16 Apr 2025 17:08:03 +0100,changes 16/04/2024 16:04:00,'
+ 7 files changed, 36 insertions(+), 16 deletions(-)
+
+'921c413,Tiago Villaca,Wed, 16 Apr 2025 16:40:47 +0100,changes16-04,'
+ 14 files changed, 30975 insertions(+), 96 deletions(-)
+
+'bd4c3dd,Tiago Villaca,Thu, 10 Apr 2025 16:11:01 +0100,body layout changes,'
+ 8 files changed, 204 insertions(+), 30 deletions(-)
+
+'2d4ba1f,Tiago Villaca,Wed, 9 Apr 2025 16:21:09 +0100,changes,'
+ 6 files changed, 41 insertions(+), 58 deletions(-)
+
+'7e07409,Tiago Villaca,Wed, 9 Apr 2025 15:00:24 +0100,changes,'
+ 12 files changed, 238 insertions(+), 36 deletions(-)
+
+'0f6a82b,Tiago Villaca,Wed, 9 Apr 2025 11:33:20 +0100,changes,'
+ 5 files changed, 99 insertions(+), 30 deletions(-)
+
+'cb62b2d,Tiago Villaca,Wed, 9 Apr 2025 10:39:32 +0100,headerand footer,'
+ 5 files changed, 38 insertions(+), 13 deletions(-)
+
+'6b2e1ba,Tiago Villaca,Tue, 8 Apr 2025 15:03:53 +0100,nunjucks additions,'
+ 3 files changed, 47 insertions(+), 14 deletions(-)
+
+'bfba7be,Tiago Villaca,Tue, 8 Apr 2025 14:37:26 +0100,create necessary documents,'
+ 2614 files changed, 475271 insertions(+), 1 deletion(-)
+
+'89b1377,Tiago Villaca,Tue, 8 Apr 2025 14:06:49 +0100,create index.html,'
+ 1 file changed, 24 insertions(+)
+
+'43125ad,Tiago Villaca,Tue, 8 Apr 2025 14:00:16 +0100,Initial commit,'
+ 1 file changed, 2 insertions(+)
